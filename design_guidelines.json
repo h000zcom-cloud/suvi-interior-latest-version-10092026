@@ -1,0 +1,126 @@
+{
+  "brand": {
+    "name": "Suvi Interior",
+    "location": "Shop No. G2, Pandhari Mala, 273, Shree Kulswamini Business Centre, 10, Ambad-Uttam Nagar Road, Opp. Rajat Park, Nashik 422010",
+    "phone": "+91 97020 39381",
+    "services": [
+      "Modular Kitchens",
+      "Living Spaces",
+      "Bedroom Interiors",
+      "TV Units & Wall Systems",
+      "Custom Furniture",
+      "Complete Interior Solutions"
+    ],
+    "ethos": "A premium interior and furniture studio creating thoughtfully designed spaces with precision, functionality and timeless aesthetics."
+  },
+  "typography": {
+    "primary_heading": "Cormorant Garamond",
+    "secondary_body": "Manrope",
+    "weights": {
+      "headings": "font-light to font-medium (300-500)",
+      "body": "font-light to font-normal (300-400)",
+      "labels": "font-medium tracking-[0.2em] uppercase"
+    },
+    "hierarchy": {
+      "h1_hero": "text-5xl sm:text-6xl lg:text-7xl tracking-tighter leading-[0.9]",
+      "h2_section": "text-4xl sm:text-5xl tracking-tight leading-none",
+      "h3_card": "text-2xl sm:text-3xl leading-snug",
+      "body": "text-base lg:text-lg leading-relaxed",
+      "label": "text-xs sm:text-sm uppercase tracking-[0.2em]"
+    },
+    "instructions_to_main_agent": "Never use Inter or Roboto for headings. Stacked headings like 'CRAFTED / FOR / MODERN LIVING' should use <br/> tags and have very tight line-height. Import Google Fonts for Cormorant Garamond and Manrope in index.css. Use them explicitly via Tailwind classes or base styles."
+  },
+  "colors": {
+    "background": {
+      "primary": "#F7F5F0",
+      "secondary": "#EFECE6",
+      "dark": "#181614"
+    },
+    "text": {
+      "primary": "#1A1A1A",
+      "secondary": "#8C857B",
+      "light": "#F7F5F0",
+      "accent": "#4A3728"
+    },
+    "borders": {
+      "light": "#E2DFD8",
+      "dark": "#2A2622"
+    },
+    "instructions_to_main_agent": "Configure these exact hex codes in tailwind.config.js. Avoid standard bright Tailwind colors. Ensure high contrast ratio. Do not use generic full-screen gradients."
+  },
+  "spacing_and_layout": {
+    "padding": "Generous. Standard section padding: py-24 md:py-32.",
+    "borders": "Thin, 1px solid borders for separators. Avoid border-radius where possible; use rounded-none or max rounded-sm for subtle edges.",
+    "shadows": "DO NOT USE typical drop shadows. Rely on thin borders and negative space.",
+    "grid_system": "Bento Tetris or asymmetrical editorial grids. Never fill 100% of the grid perfectly.",
+    "instructions_to_main_agent": "Avoid putting sections inside standard cards. Let elements sit directly on the background. Use thin 1px horizontal lines to separate services. Ensure container optical alignment."
+  },
+  "motion_and_interactions": {
+    "scrolling": "Lenis smooth scrolling is MANDATORY. Use @studio-freight/react-lenis.",
+    "hero_reveal": "Masked line-by-line reveal for H1 using framer-motion (overflow-hidden wrapper, translateY 100% to 0).",
+    "scroll_reveals": "Use framer-motion 'whileInView' for subtle y-axis translates.",
+    "parallax": "Subtle image parallax using useScroll and useTransform for hero/project images.",
+    "hover_states": "Images scale subtly on hover (scale-105 with duration-700 ease-out). Services list triggers image swap on hover.",
+    "marquee": "One very slow editorial marquee using react-fast-marquee.",
+    "accessibility": "Always respect prefers-reduced-motion."
+  },
+  "components": {
+    "header": "Transparent header initially, transitioning to solid slightly blurred bg (#F7F5F0/90 backdrop-blur-md) on scroll. Left aligned wordmark, right aligned 'Start a Project'. Fullscreen elegant mobile menu overlay.",
+    "buttons": "Minimal rectangular buttons. e.g. border border-primary px-6 py-3 uppercase tracking-widest text-xs hover:bg-primary hover:text-light transition-colors.",
+    "services_list": "Editorial rows with large typography, separated by thin borders.",
+    "footer": "Giant typography 'SUVI / INTERIOR'. Dark background (#181614). Thin borders for link separation.",
+    "projects_gallery": "Masonry or asymmetrical grid. Image + text below. Use a lightbox.",
+    "instructions_to_main_agent": "For React components, write .js or .jsx extensions. Do not use generic Shadcn cards for main layout blocks. DO NOT use complete transparent background in header if it overlaps content."
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1564078516393-cf04bd966897?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3YXJtJTIwbGl2aW5nJTIwcm9vbSUyMGludGVyaW9yJTIwbW9kZXJuJTIwd29vZHxlbnwwfHx8fDE3ODgzNzk5MTJ8MA&ixlib=rb-4.1.0&q=85",
+      "category": "hero",
+      "description": "Elegant gray padded chaise couch beside window, warm modern living room."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1771270731051-9cfbb7222946?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwyfHxwcmVtaXVtJTIwbW9kdWxhciUyMGtpdGNoZW4lMjBtb2Rlcm4lMjBtaW5pbWFsaXN0JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzg4Mzc5OTEyfDA&ixlib=rb-4.1.0&q=85",
+      "category": "services",
+      "description": "Modern dark modular kitchen with wood accents."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1710224002849-a76ea1068b0d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBiZWRyb29tJTIwaW50ZXJpb3IlMjB3YXJtJTIwbGlnaHQlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzg4Mzc5OTEyfDA&ixlib=rb-4.1.0&q=85",
+      "category": "projects",
+      "description": "Luxury bedroom interior, warm light, modern bed."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1724918108497-160360dbedfe?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHw0fHx3b29kJTIwam9pbmVyeSUyMGNyYWZ0c21hbnNoaXAlMjBkZXRhaWwlMjB0ZXh0dXJlfGVufDB8fHx8MTc4ODM3OTkxMnww&ixlib=rb-4.1.0&q=85",
+      "category": "craftsmanship",
+      "description": "Close up of wood joinery detail and texture."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1663811397219-c572550dffc5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjB0diUyMHVuaXQlMjBsaXZpbmclMjByb29tJTIwYXJjaGl0ZWN0dXJlfGVufDB8fHx8MTc4ODM3OTkxMnww&ixlib=rb-4.1.0&q=85",
+      "category": "gallery",
+      "description": "Modern TV unit and living room architecture."
+    }
+  ],
+  "page_blueprints": {
+    "homepage": [
+      "Hero: Fullscreen cinematic with 'INTERIORS / THAT FEEL / LIKE HOME' masked line reveal.",
+      "Editorial Intro: 'SUVI INTERIOR / NASHIK' label, large text 'DESIGNED AROUND THE WAY YOU LIVE'.",
+      "Services: Typography-led list with horizontal separators. Image swaps on hover.",
+      "Featured Projects: Asymmetrical grid (1 large + 2 smaller).",
+      "Philosophy & Manifesto: 3 numbered chapters.",
+      "Process: 5 steps (Discover, Design, Craft, Install, Deliver).",
+      "Craftsmanship: Full-width close-up wood image with minimal text overlay.",
+      "Testimonials: Typography focused, no typical cards.",
+      "Final CTA: Dark background, full width. 'LET'S CREATE A SPACE THAT FEELS LIKE YOURS.'"
+    ]
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic outputs. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Do not use dark colors as gradients. Stick to solid architectural tones.",
+    "Create depth through layered design elements with z-index hierarchy, but DO NOT rely on box shadows.",
+    "DO NOT apply universal transitions (e.g., transition: all). Add transitions to specific properties to avoid breaking Framer Motion transforms.",
+    "DO NOT center align the app container. Respect the natural reading flow.",
+    "All interactive and key informational elements MUST include a `data-testid` attribute (kebab-case, role-based).",
+    "Ensure `tailwind.config.js` is updated with the custom fonts and color palette.",
+    "DO NOT use generic placeholder text. Use the actual brand info provided.",
+    "Use .js/.jsx files as requested by the environment constraints."
+  ]
+}

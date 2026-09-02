@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://suvi-studio.preview.emergentagent.com/sitemap.xml
