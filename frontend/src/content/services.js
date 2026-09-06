@@ -44,7 +44,7 @@ export const services = [
   {
     slug: "tv-units-wall-systems",
     number: "04",
-    title: "TV Units & Wall Systems",
+    title: "TV & Wall Systems",
     short: "Custom TV units, entertainment walls, storage systems and feature walls.",
     description:
       "From a single floating unit to a full entertainment wall, we design TV units, TV stands and cabinets that hold everything — cables included — and still read as one clean composition.",
@@ -70,7 +70,7 @@ export const services = [
   {
     slug: "complete-interior-solutions",
     number: "06",
-    title: "Complete Interior Solutions",
+    title: "Complete Interiors",
     short: "End-to-end interior execution for residential spaces.",
     description:
       "One studio, one point of contact — from the first conversation and concept through furniture manufacturing, installation and handover of a finished home.",

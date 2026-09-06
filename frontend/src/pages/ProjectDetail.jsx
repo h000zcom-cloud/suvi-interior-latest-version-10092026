@@ -39,7 +39,7 @@ export default function ProjectDetail() {
         </Reveal>
         <div className="mt-10 grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <SplitLines as="h1" delay={0.1} lines={project.title.split(" ").length > 2 ? [project.title.split(" ").slice(0, -1).join(" "), project.title.split(" ").slice(-1)[0]] : [project.title]} className="font-display text-[12vw] uppercase leading-[0.9] tracking-[-0.015em] sm:text-7xl lg:text-8xl" data-testid="project-title" />
+            <SplitLines as="h1" delay={0.1} lines={project.title.split(" ").length > 2 ? [project.title.split(" ").slice(0, -1).join(" "), project.title.split(" ").slice(-1)[0]] : [project.title]} className="h-display text-[clamp(2.5rem,9vw,6.5rem)]" data-testid="project-title" />
           </div>
           <Reveal delay={0.3} className="flex flex-col justify-end lg:col-span-4">
             <dl className="grid grid-cols-2 gap-y-4 border-t border-line pt-5 text-sm sm:grid-cols-3 lg:grid-cols-2" data-testid="project-meta">
@@ -58,7 +58,7 @@ export default function ProjectDetail() {
                 </div>
               )}
             </dl>
-            <p className="mt-8 text-base leading-relaxed text-taupe" data-testid="project-summary">{project.summary}</p>
+            <p className="mt-8 lede" data-testid="project-summary">{project.summary}</p>
           </Reveal>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function ProjectDetail() {
         <div className="lg:col-span-4">
           <Reveal>
             <p className="label text-taupe">Design Concept</p>
-            <p className="mt-6 font-display text-2xl leading-[1.25] tracking-[-0.01em] sm:text-3xl" data-testid="project-concept">{project.concept}</p>
+            <p className="h-statement mt-6" data-testid="project-concept">{project.concept}</p>
           </Reveal>
         </div>
         <div className="grid gap-12 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
@@ -126,9 +126,9 @@ export default function ProjectDetail() {
         <Link to={`/projects/${next.slug}`} data-testid="project-next" className="group container-x flex items-center justify-between gap-6 py-10 md:py-14">
           <div>
             <p className="label text-taupe">Next project</p>
-            <p className="mt-3 font-display text-3xl uppercase leading-none tracking-[-0.01em] sm:text-5xl">{next.title}</p>
+            <p className="h-section mt-3 text-[clamp(1.75rem,4vw,3rem)]">{next.title}</p>
           </div>
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-line transition-[background-color,color,border-color] duration-500 group-hover:border-charcoal group-hover:bg-charcoal group-hover:text-ivory">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-line transition-[background-color,color,border-color] duration-500 group-hover:border-burgundy group-hover:bg-burgundy group-hover:text-ivory">
             <ArrowUpRight className="h-5 w-5" strokeWidth={1.5} />
           </span>
         </Link>

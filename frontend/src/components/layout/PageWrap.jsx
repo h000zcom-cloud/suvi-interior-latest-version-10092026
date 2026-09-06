@@ -21,6 +21,7 @@ export const PageWrap = ({ children, theme = "dark", className, testId }) => {
 
   return (
     <motion.main
+      id="main"
       data-testid={testId}
       className={cn("relative", className)}
       initial={{ opacity: 0 }}

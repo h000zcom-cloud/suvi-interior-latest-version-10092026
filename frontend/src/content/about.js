@@ -58,7 +58,7 @@ export const about = {
       label: "Design Approach",
       heading: ["Five steps.", "One conversation."],
       body: [
-        "Our process moves from discovery through design, craft, installation and delivery. At every step you speak to the same people, and every decision is made with the finished room in mind.",
+        "Our process moves from discovery through design, detail, craft and finally living in the finished space. At every step you speak to the same people, and every decision is made with the finished room in mind.",
       ],
       image: img.kitchenWoodDark,
     },

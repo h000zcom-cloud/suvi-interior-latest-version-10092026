@@ -16,6 +16,7 @@ import Projects from "@/pages/Projects";
 import ProjectDetail from "@/pages/ProjectDetail";
 import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
+import Process from "@/pages/Process";
 import { Privacy, Terms, NotFound } from "@/pages/Legal";
 
 function Shell() {
@@ -28,6 +29,9 @@ function Shell() {
 
   return (
     <HeaderThemeProvider>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <Preloader />
       <Header menuOpen={menuOpen} onToggle={() => setMenuOpen((o) => !o)} />
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -40,6 +44,7 @@ function Shell() {
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/process" element={<Process />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />

@@ -17,26 +17,44 @@ export const materials = [
   {
     src: `${GEN}dce492bd8e6fbe45681b1b3082876eb8c3e5a4d7f34576d6bbcbf0140d605529.jpeg`,
     alt: "Close-up of matte walnut veneer grain",
-    title: "Veneer & laminate",
-    ratio: "1 / 1",
-  },
-  {
-    src: `${GEN}d297a911539be3cca385e4bc0187fffd4404c6a8433bf3525a69a7522bbefa71.jpeg`,
-    alt: "Slim black handle on a fluted oak cabinet door",
-    title: "Hardware",
-    ratio: "3 / 4",
-  },
-  {
-    src: `${GEN}0aa9d8d850232cc7a071aad5ed960d6ceb7e271f4d9fbf37183b4ecd8a5ad958.jpeg`,
-    alt: "Mitred joinery corner on a solid oak cabinet",
-    title: "Joinery",
+    title: "Wood",
+    note: "Veneers & solid timber",
     ratio: "1 / 1",
   },
   {
     src: `${GEN}e86d6f000202a0b88cd073eece9e66a70692156e65cdd370c23eec05bbc7de69.jpeg`,
     alt: "Limestone countertop edge meeting a walnut cabinet front",
-    title: "Stone & finishes",
+    title: "Stone",
+    note: "Countertops & surfaces",
     ratio: "3 / 2",
+  },
+  {
+    src: `${GEN}d297a911539be3cca385e4bc0187fffd4404c6a8433bf3525a69a7522bbefa71.jpeg`,
+    alt: "Slim black handle on a fluted oak cabinet door",
+    title: "Metal",
+    note: "Handles & hardware",
+    ratio: "3 / 4",
+  },
+  {
+    id: "1616627561950-9f746e330187",
+    alt: "Striped textile detail in warm brown tones",
+    title: "Fabrics",
+    note: "Upholstery & soft finishes",
+    ratio: "1 / 1",
+  },
+  {
+    src: `${GEN}0aa9d8d850232cc7a071aad5ed960d6ceb7e271f4d9fbf37183b4ecd8a5ad958.jpeg`,
+    alt: "Mitred joinery corner on a solid oak cabinet",
+    title: "Joinery",
+    note: "Edges, corners & fit",
+    ratio: "1 / 1",
+  },
+  {
+    id: "1600607688066-890987f18a86",
+    alt: "Marble vanity with a wood cabinet in warm light",
+    title: "Marble",
+    note: "Vanities & feature surfaces",
+    ratio: "3 / 4",
   },
 ];
 

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { site } from "@/content/site";
 
-const DEFAULT_TITLE = "Suvi Interior | Interior Design & Custom Furniture Studio in Nashik";
+const DEFAULT_TITLE = "Suvi Interior | Interior Designers in Nashik — Kitchens, Custom Furniture & Home Interiors";
 const DEFAULT_IMAGE =
   "https://static.prod-images.emergentagent.com/jobs/f269e9d1-749a-45df-9bb4-b97d233efcd1/images/cbd42da2d5aeab75d8c03160dffa60bc7caccaef27cadd63015168b228dfde6a.jpeg";
 

@@ -1,34 +1,46 @@
 import { Reveal, SplitLines } from "@/components/motion/Reveal";
 import { ParallaxImage } from "@/components/motion/Picture";
 import { materials } from "@/content/images";
+import { cn } from "@/lib/utils";
 
-export const Materials = () => (
-  <section data-testid="materials-section" className="border-t border-line">
-    <div className="container-x py-24 md:py-32">
+const LAYOUT = [
+  "md:col-span-4 md:row-span-2",
+  "md:col-span-5 md:col-start-6",
+  "md:col-span-3 md:col-start-11 md:row-span-2",
+  "md:col-span-3 md:col-start-6 md:mt-6",
+  "md:col-span-2 md:col-start-9 md:mt-6",
+  "md:col-span-4 md:col-start-2 md:mt-6",
+];
+
+export const Materials = ({ index = "06" }) => (
+  <section data-testid="materials-section" className="border-t border-line bg-sand">
+    <div className="container-x section">
       <div className="grid gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-6">
           <Reveal>
-            <p className="label text-taupe">Material &amp; Craft</p>
+            <p className="label flex items-center gap-4 text-taupe">
+              <span className="text-burgundy">{index}</span> Materials &amp; Craft
+            </p>
           </Reveal>
-          <SplitLines inView as="h2" delay={0.1} lines={["Made to", "be touched."]} className="mt-6 font-display text-[11vw] uppercase leading-[0.9] tracking-[-0.015em] sm:text-6xl lg:text-7xl" />
+          <SplitLines inView as="h2" delay={0.1} lines={["Made to be", "touched."]} className="h-section mt-8" />
         </div>
         <Reveal delay={0.2} className="flex items-end lg:col-span-5 lg:col-start-8">
-          <p className="max-w-md text-base leading-relaxed text-taupe md:text-lg">
-            Wood, laminate, stone and hardware are chosen for how they feel in the hand and how they age in a home. Grain is matched across doors, edges are finished cleanly and every handle sits exactly where the hand expects it.
+          <p className="lede max-w-md">
+            Wood, stone, metal and fabric are chosen for how they feel in the hand and how they age in a home. Grain is matched across doors, edges are finished cleanly and every handle sits exactly where the hand expects it.
           </p>
         </Reveal>
       </div>
 
-      <div className="mt-16 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 no-scrollbar md:mt-24 md:grid md:grid-cols-12 md:items-end md:gap-6 md:overflow-visible md:pb-0">
-        {materials.map((m, i) => {
-          const spans = ["md:col-span-3", "md:col-span-3 md:mb-16", "md:col-span-2 md:mb-6", "md:col-span-4"];
-          return (
-            <Reveal key={m.title} delay={i * 0.08} className={`w-[72vw] shrink-0 snap-start sm:w-[48vw] md:w-auto ${spans[i]}`}>
-              <ParallaxImage image={m} ratio={m.ratio} strength={5 + i * 2} sizes="(min-width: 768px) 30vw, 72vw" data-testid={`material-${i}`} />
-              <p className="label mt-4 text-taupe">{m.title}</p>
-            </Reveal>
-          );
-        })}
+      <div className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 no-scrollbar md:mt-20 md:grid md:grid-cols-12 md:items-start md:gap-6 md:overflow-visible md:pb-0">
+        {materials.map((m, i) => (
+          <Reveal key={m.title} delay={(i % 3) * 0.08} className={cn("w-[70vw] shrink-0 snap-start sm:w-[46vw] md:w-auto", LAYOUT[i])}>
+            <ParallaxImage image={m} ratio={m.ratio} strength={4 + (i % 3) * 2} sizes="(min-width: 768px) 33vw, 70vw" data-testid={`material-${i}`} />
+            <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-line/80 pt-3">
+              <p className="font-display text-xl uppercase tracking-[0.02em]">{m.title}</p>
+              <p className="label text-right text-taupe">{m.note}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </div>
   </section>

@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const ArrowLink = ({ to, href, children, className, dark = false, ...rest }) => {
-  const cls = cn("arrow-link", dark ? "text-ivory/80 hover:text-ivory" : "text-charcoal", className);
+  const cls = cn("arrow-link", dark ? "text-ivory/80 hover:text-brass" : "text-charcoal", className);
   const inner = (
     <>
       <span className="link-underline">{children}</span>

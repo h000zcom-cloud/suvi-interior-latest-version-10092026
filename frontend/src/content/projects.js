@@ -64,7 +64,7 @@ export const projects = [
   },
   {
     slug: "minimal-living-space",
-    title: "Minimal Living Space",
+    title: "Warm Minimal Residence",
     type: "Living Room",
     category: "living",
     location: "Nashik",
@@ -145,4 +145,6 @@ export const projects = [
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
+export const selectedProjects = featuredProjects.slice(0, 3);
+export const featureStory = featuredProjects[3] || featuredProjects[0];
 export const getProject = (slug) => projects.find((p) => p.slug === slug);

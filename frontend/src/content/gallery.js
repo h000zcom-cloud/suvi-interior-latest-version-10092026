@@ -15,23 +15,25 @@ export const galleryCategories = [
 
 const g = (image, category, ratio = "4 / 3") => ({ ...image, category, ratio });
 
+const m = (i) => ({ src: materials[i].src, id: materials[i].id, alt: materials[i].alt });
+
 export const galleryItems = [
   g(img.livingWarm, "living", "3 / 2"),
   g(img.kitchenDark, "kitchen", "4 / 5"),
   g(img.bedroomLux, "bedroom", "3 / 2"),
-  g({ ...materials[0] }, "details", "1 / 1"),
+  g(m(0), "details", "1 / 1"),
   g(img.tvWall, "tv-units", "4 / 3"),
   g(img.livingLeather, "living", "4 / 5"),
   g(img.diningWood, "dining", "3 / 2"),
   g(img.wardrobe, "furniture", "4 / 5"),
   g(img.bedroomDark, "bedroom", "4 / 3"),
-  g({ ...materials[1] }, "details", "3 / 4"),
+  g(m(2), "details", "3 / 4"),
   g(img.kitchenWoodDark, "kitchen", "3 / 2"),
   g(img.livingBeige, "living", "4 / 3"),
   g(img.tvShelves, "tv-units", "4 / 5"),
   g(img.bedroomBeige, "bedroom", "3 / 2"),
   g(img.diningDark, "dining", "4 / 5"),
-  g({ ...materials[2] }, "details", "1 / 1"),
+  g(m(4), "details", "1 / 1"),
   g(img.kitchenBlack, "kitchen", "4 / 3"),
   g(img.sideTable, "furniture", "1 / 1"),
   g(img.livingPanels, "living", "3 / 2"),
@@ -40,7 +42,7 @@ export const galleryItems = [
   g(img.kitchenTap, "details", "4 / 5"),
   g(img.diningWarm, "dining", "4 / 3"),
   g(img.doors, "furniture", "3 / 4"),
-  g({ ...materials[3] }, "details", "3 / 2"),
+  g(m(1), "details", "3 / 2"),
   g(img.livingLounge, "living", "3 / 2"),
   g(img.kitchenWhite, "kitchen", "4 / 3"),
   g(img.textile, "details", "1 / 1"),

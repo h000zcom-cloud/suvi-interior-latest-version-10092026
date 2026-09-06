@@ -21,30 +21,30 @@ export default function Contact() {
     <PageWrap theme="dark" testId="contact-page">
       <Seo title="Contact — Start Your Interior Project in Nashik" description={`Contact Suvi Interior in Nashik. Call ${site.phone.display}, WhatsApp us or request a consultation for modular kitchens, custom furniture and complete home interiors.`} path="/contact" crumbs={CRUMBS} />
 
-      <section className="container-x pt-32 pb-16 md:pt-44 md:pb-20">
+      <section className="container-x pt-32 pb-14 md:pt-44 md:pb-20">
         <Reveal>
-          <p className="label text-taupe">Contact</p>
+          <p className="label flex items-center gap-4 text-taupe"><span className="h-px w-8 bg-burgundy" />Contact</p>
         </Reveal>
-        <SplitLines as="h1" delay={0.15} lines={["Let's talk", "about your", "space."]} className="mt-6 font-display text-[13vw] uppercase leading-[0.9] tracking-[-0.015em] sm:text-7xl lg:text-8xl xl:text-[7.5rem]" />
+        <SplitLines as="h1" delay={0.15} lines={["Let's talk", "about your", "space."]} className="h-display mt-7" />
       </section>
 
-      <section className="container-x grid gap-16 pb-24 md:pb-32 lg:grid-cols-12">
+      <section className="container-x grid gap-16 pb-20 md:pb-28 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Reveal delay={0.3}>
             <p className="font-display text-2xl uppercase leading-none tracking-[0.08em]">{site.name}</p>
             <p className="mt-2 text-sm text-taupe">
-              {site.city}, {site.region}
+              {site.city} · {site.region}
             </p>
           </Reveal>
           <Reveal delay={0.35} className="mt-10">
             <p className="label text-taupe">Phone</p>
-            <a href={telLink()} data-testid="contact-phone" className="link-underline mt-3 inline-block font-display text-3xl tracking-tight sm:text-4xl">
+            <a href={telLink()} data-testid="contact-phone" className="link-underline mt-3 inline-block font-display text-3xl tracking-tight hover:text-burgundy sm:text-4xl">
               {site.phone.display}
             </a>
           </Reveal>
           <Reveal delay={0.4} className="mt-10">
             <p className="label text-taupe">Studio</p>
-            <address className="mt-3 text-sm not-italic leading-relaxed text-charcoal/85" data-testid="contact-address">
+            <address className="mt-3 text-[15px] not-italic leading-relaxed text-charcoal/85" data-testid="contact-address">
               {site.address.lines.map((l) => (
                 <span key={l} className="block">
                   {l}
@@ -73,17 +73,17 @@ export default function Contact() {
               </ul>
             </Reveal>
           )}
-          <Reveal delay={0.45} className="mt-10 flex flex-col gap-3">
-            <a href={telLink()} data-testid="contact-call-button" className="btn btn-solid justify-start">
-              <Phone className="h-3.5 w-3.5" strokeWidth={1.5} /> Call Now
+          <Reveal delay={0.45} className="mt-10 flex flex-col items-start gap-4 border-t border-line pt-8">
+            <a href={telLink()} data-testid="contact-call-button" className="btn-text">
+              <Phone className="h-3.5 w-3.5" strokeWidth={1.5} /> Call now
             </a>
             {site.whatsapp.enabled && (
-              <a href={waLink()} target="_blank" rel="noopener noreferrer" data-testid="contact-whatsapp-button" className="btn btn-outline justify-start">
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" data-testid="contact-whatsapp-button" className="btn-text">
                 <WhatsAppIcon className="h-3.5 w-3.5" /> WhatsApp
               </a>
             )}
-            <a href={directionsLink()} target="_blank" rel="noopener noreferrer" data-testid="contact-directions-button" className="btn btn-outline justify-start">
-              <MapPin className="h-3.5 w-3.5" strokeWidth={1.5} /> Get Directions
+            <a href={directionsLink()} target="_blank" rel="noopener noreferrer" data-testid="contact-directions-button" className="btn-text">
+              <MapPin className="h-3.5 w-3.5" strokeWidth={1.5} /> Get directions
             </a>
           </Reveal>
         </div>
@@ -91,7 +91,7 @@ export default function Contact() {
         <Reveal delay={0.35} className="lg:col-span-7 lg:col-start-6">
           <div className="border-t border-line pt-8">
             <p className="label text-taupe">Enquiry</p>
-            <h2 className="mt-4 font-display text-3xl uppercase leading-none tracking-[-0.01em] sm:text-4xl">Request a consultation</h2>
+            <h2 className="h-sub mt-4">Request a consultation</h2>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-taupe">Share a few details and we'll get back to you to arrange a conversation about your space.</p>
           </div>
           <div className="mt-10">
@@ -100,22 +100,22 @@ export default function Contact() {
         </Reveal>
       </section>
 
-      <section className="border-t border-line" aria-label="Location">
+      <section className="border-t border-line bg-sand" aria-label="Location">
         <div className="container-x grid gap-10 py-20 md:py-24 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <p className="label text-taupe">Find us</p>
-            <p className="mt-6 font-display text-3xl uppercase leading-[0.95] tracking-[-0.01em] sm:text-4xl">
+            <p className="h-sub mt-6">
               Opp. Rajat Park, Ambad–Uttam Nagar Road
             </p>
             <p className="mt-6 text-sm leading-relaxed text-taupe">Pandhari Mala, Shree Kulswamini Business Centre, Nashik 422010.</p>
-            <a href={directionsLink()} target="_blank" rel="noopener noreferrer" data-testid="map-directions" className="arrow-link mt-8 text-charcoal">
-              <span className="link-underline">Open in Google Maps</span>
-              <MapPin className="h-4 w-4" strokeWidth={1.5} />
+            <a href={directionsLink()} target="_blank" rel="noopener noreferrer" data-testid="map-directions" className="btn-text mt-8">
+              Open in Google Maps <MapPin className="h-4 w-4" strokeWidth={1.5} />
             </a>
           </Reveal>
           <Reveal delay={0.15} className="lg:col-span-7 lg:col-start-6">
-            <div className="relative overflow-hidden border border-line bg-ivory-2" style={{ aspectRatio: "16 / 9" }}>
+            <div className="relative overflow-hidden border border-line bg-sand" style={{ aspectRatio: "16 / 9" }}>
               <iframe title="Suvi Interior on Google Maps" src={mapEmbedUrl()} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="map-frame absolute inset-0 h-full w-full border-0" data-testid="contact-map" />
+              <div className="pointer-events-none absolute inset-0 border-[10px] border-sand sm:border-[14px]" aria-hidden="true" />
             </div>
           </Reveal>
         </div>

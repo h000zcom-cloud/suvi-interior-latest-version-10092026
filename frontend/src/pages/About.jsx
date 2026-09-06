@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 const CRUMBS = [
   { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
+  { name: "Studio", path: "/about" },
 ];
 
 const Section = ({ s, index }) => {
@@ -20,12 +20,12 @@ const Section = ({ s, index }) => {
       <div className="container-x grid gap-12 py-20 md:py-28 lg:grid-cols-12 lg:gap-8">
         <div className={cn("lg:col-span-5", flip ? "lg:col-start-8 lg:order-2" : "lg:col-start-1")}>
           <Reveal>
-            <p className="label text-taupe">{s.label}</p>
+            <p className="label flex items-center gap-4 text-taupe"><span className="text-burgundy">0{index + 1}</span>{s.label}</p>
           </Reveal>
-          <SplitLines inView as="h2" delay={0.1} lines={s.heading} className="mt-6 font-display text-4xl uppercase leading-[0.95] tracking-[-0.01em] sm:text-5xl xl:text-[3.5rem]" />
+          <SplitLines inView as="h2" delay={0.1} lines={s.heading} className="h-section mt-7 text-[clamp(2rem,4.2vw,3.5rem)]" />
           <Reveal delay={0.2} className="mt-8 flex flex-col gap-5">
             {s.body.map((p, i) => (
-              <p key={i} className="max-w-md text-base leading-relaxed text-taupe">
+              <p key={i} className="lede max-w-md">
                 {p}
               </p>
             ))}
@@ -35,9 +35,9 @@ const Section = ({ s, index }) => {
             <ol className="mt-12 border-t border-line">
               {s.principles.map((p, i) => (
                 <Reveal key={p.n} as="li" delay={0.1 * i} className="grid grid-cols-[3.5rem_1fr] gap-4 border-b border-line py-6">
-                  <span className="label pt-1 text-taupe">{p.n}</span>
+                  <span className="label pt-1 text-burgundy">{p.n}</span>
                   <div>
-                    <h3 className="font-display text-2xl uppercase leading-none">{p.title}</h3>
+                    <h3 className="h-sub">{p.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-taupe">{p.text}</p>
                   </div>
                 </Reveal>
@@ -58,16 +58,16 @@ const Section = ({ s, index }) => {
 export default function About() {
   return (
     <PageWrap theme="light" testId="about-page">
-      <Seo title="About" description={`About Suvi Interior — an interior design and furniture manufacturing studio at Pandhari Mala, Ambad–Uttam Nagar Road, Nashik. ${site.positioning}`} path="/about" crumbs={CRUMBS} />
-      <PageHero label={`About · ${site.city}`} lines={["About", "Suvi Interior"]} image={about.heroImage} />
+      <Seo title="The Studio — Interior Designers in Nashik" description={`About Suvi Interior — an interior design and furniture manufacturing studio at Pandhari Mala, Ambad–Uttam Nagar Road, Nashik. ${site.positioning}`} path="/about" crumbs={CRUMBS} />
+      <PageHero label={`The Studio · ${site.city}`} lines={["About", "Suvi Interior"]} image={about.heroImage} />
 
-      <section className="container-x py-20 md:py-28">
+      <section className="container-x section-sm">
         <div className="grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-3">
-            <p className="label text-taupe">The Studio</p>
+            <p className="label flex items-center gap-4 text-taupe"><span className="h-px w-8 bg-burgundy" />The Studio</p>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-8 lg:col-start-5">
-            <p className="font-display text-2xl leading-[1.25] tracking-[-0.01em] sm:text-3xl lg:text-4xl" data-testid="about-intro">
+            <p className="h-statement" data-testid="about-intro">
               {about.intro}
             </p>
           </Reveal>

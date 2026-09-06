@@ -53,6 +53,7 @@ class EnquiryCreate(BaseModel):
     phone: str = Field(min_length=7, max_length=20)
     email: Optional[str] = Field(default=None, max_length=160)
     project_type: str
+    budget: Optional[str] = Field(default=None, max_length=120)
     requirement: Optional[str] = Field(default=None, max_length=300)
     message: Optional[str] = Field(default=None, max_length=2000)
     source_page: Optional[str] = Field(default=None, max_length=200)
