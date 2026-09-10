@@ -131,7 +131,7 @@ async def brochure_pdf():
     return Response(
         content=_pdf_cache["bytes"],
         media_type="application/pdf",
-        headers={"Content-Disposition": 'inline; filename="Suvi-Interior-Brochure.pdf"', "Cache-Control": "public, max-age=3600"},
+        headers={"Content-Disposition": 'attachment; filename="Suvi-Interior-Brochure.pdf"', "Cache-Control": "public, max-age=3600"},
     )
 
 

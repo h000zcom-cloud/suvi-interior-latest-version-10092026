@@ -307,4 +307,9 @@
   .print-break {
     break-before: page;
   }
+  .content-reveal,
+  .split-line {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

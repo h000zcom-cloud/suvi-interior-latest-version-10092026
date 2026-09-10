@@ -16,7 +16,7 @@ import { principles } from "@/content/process";
 import { selectedProjects } from "@/content/projects";
 import { services } from "@/content/services";
 import { site } from "@/content/site";
-import { DownloadButton, GateProvider } from "@/components/brochure/LeadGate";
+import { DownloadButton } from "@/components/brochure/DownloadButton";
 
 const YEAR = new Date().getFullYear();
 
@@ -97,7 +97,7 @@ const Cover = () => (
 const ActionBar = () => (
   <div
     data-testid="brochure-action-bar"
-    className="glass no-print sticky top-[68px] z-30 border-b border-charcoal/10 lg:top-[84px]"
+    className="glass no-print sticky top-[68px] z-30 border-b border-charcoal/10 lg:top-[80px]"
   >
     <div className="container-x flex h-14 items-center justify-between gap-4">
       <p className="label flex items-center gap-3 whitespace-nowrap text-taupe">
@@ -117,7 +117,6 @@ const ActionBar = () => (
         <DownloadButton
           className="btn-solid px-5 py-2.5"
           testId="brochure-download-btn-bar"
-          compact
         />
       </div>
     </div>
@@ -252,6 +251,7 @@ const Capabilities = () => (
               </div>
               <Link
                 to={`/services#${s.slug}`}
+              data-testid={`brochure-service-details-${s.slug}`}
                 className="arrow-link mt-1 shrink-0 text-charcoal"
               >
                 Details <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.5} />
@@ -335,7 +335,6 @@ const SelectedWork = () => (
 export default function Brochure() {
   return (
     <PageWrap theme="light" testId="brochure-page">
-      <GateProvider>
         <Seo
           title="Studio Brochure — Interior Design & Furniture in Nashik"
           description="Download the Suvi Interior studio brochure: modular kitchens, living and bedroom interiors, TV & wall systems, custom furniture and complete home interiors, designed and made in Nashik."
@@ -382,7 +381,6 @@ export default function Brochure() {
           whatsappMessage="Hi Suvi Interior, I read your brochure and would like to discuss an interior project."
           testId="brochure-cta"
         />
-      </GateProvider>
     </PageWrap>
   );
 }

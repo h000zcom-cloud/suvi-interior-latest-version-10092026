@@ -1,6 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
 import { Reveal, SplitLines } from "@/components/motion/Reveal";
-import { EASE, VIEWPORT } from "@/lib/motion";
 import { ParallaxImage } from "@/components/motion/Picture";
 import { materials } from "@/content/images";
 import { cn } from "@/lib/utils";
@@ -15,7 +13,6 @@ const LAYOUT = [
 ];
 
 export const Materials = ({ index = "06" }) => {
-  const reduce = useReducedMotion();
   return (
     <section
       data-testid="materials-section"
@@ -33,6 +30,7 @@ export const Materials = ({ index = "06" }) => {
             <SplitLines
               inView
               as="h2"
+              data-testid="materials-heading"
               delay={0.1}
               lines={["Made to be", "touched."]}
               className="h-section mt-8"
@@ -61,13 +59,7 @@ export const Materials = ({ index = "06" }) => {
                 LAYOUT[i],
               )}
             >
-              <motion.div
-                initial={reduce ? false : { clipPath: "inset(0 0 100% 0)" }}
-                whileInView={{ clipPath: "inset(0 0 0% 0)" }}
-                viewport={VIEWPORT}
-                transition={{ duration: 1.2, ease: EASE, delay: (i % 3) * 0.1 }}
-                className="img-zoom"
-              >
+              <div className="img-zoom">
                 <ParallaxImage
                   image={m}
                   ratio={m.ratio}
@@ -75,7 +67,7 @@ export const Materials = ({ index = "06" }) => {
                   sizes="(min-width: 768px) 33vw, 70vw"
                   data-testid={`material-${i}`}
                 />
-              </motion.div>
+              </div>
               <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-line/80 pt-3">
                 <p className="flex items-baseline gap-3 font-display text-2xl leading-none">
                   <span className="label text-oxblood">0{i + 1}</span>

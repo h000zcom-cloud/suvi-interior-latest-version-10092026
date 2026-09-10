@@ -7,10 +7,16 @@ Build a complete, production-quality, premium editorial website for **SUVI INTER
 - WhatsApp uses primary phone (+91 97020 39381 → wa.me/919702039381).
 - Form enquiries: save to MongoDB (default). Google reviews: hidden placeholder. Imagery: curated stock + generated representative imagery (labelled). Founder/testimonials/hours/email/social: editable placeholders (hidden until provided).
 
+## Latest user requirements (2026-09-10 — supersede earlier brochure gating)
+- User reported the name/phone brochure pop-up failing with a studio-server error and explicitly requested **direct Download PDF, without a pop-up or form**.
+- User reported homepage content missing, especially the large Intro heading above the studio description, and requested a broader visibility fix.
+- User authorized autonomous repairs: “Do it from your side. Whatever is best.” Preserve the existing luxury visual identity and oxblood #58130E.
+
 ## Architecture
 - **Frontend**: React 19 (CRA/craco), Tailwind, framer-motion (reveals, masked line reveals, parallax, page transitions), Lenis smooth scroll, react-router v7. Fonts (session 2 luxury redesign): Cormorant Garamond (display, mixed-case light) + Plus Jakarta Sans (body). Palette: ivory #F8F6F0, night/charcoal #141210, taupe #766C63, brass #C5A880, bronze accent #8A6A42 (tailwind key `burgundy`/`bronze`), line #DCD5C8. Wordmark = `Wordmark.jsx` (SUVI ◆ INTERIOR, tracking 0.32em).
 - **Content layer** (`/app/frontend/src/content/`): `site.js` (business info, phone, WhatsApp, email/social/hours/googleReviews placeholders, nav, project types), `services.js`, `projects.js` (placeholder archive, `isPlaceholder: true`), `gallery.js`, `testimonials.js` (empty → section hidden), `about.js` (founder null → hidden), `images.js` (all imagery; swap here), `process.js`.
 - **Backend**: FastAPI + Motor. `GET /api/health`, `GET /api/enquiries/project-types`, `POST /api/enquiries` (public, validated), `GET /api/enquiries` (requires `X-Admin-Key` from backend `.env`). Pydantic `BaseDocument` with `PyObjectId`.
+- **Current brochure delivery**: native same-origin `<a download>` via `components/brochure/DownloadButton.jsx` → `frontend/public/brochures/Suvi-Interior-Brochure.pdf` (7-page A4, ~3.15 MB). No lead gate, localStorage requirement, API call, DB call, new tab or pop-up. Existing `GET /api/brochure.pdf` retained with attachment disposition. Regenerate the public asset with `python backend/export_brochure.py` after changing brochure content/images; keep the generated file with the website. This is a real brochure, not a mocked download.
 - **SEO**: per-page title/description/canonical/OG via `Seo.jsx`; JSON-LD LocalBusiness (site-wide) + BreadcrumbList; `public/robots.txt`, `public/sitemap.xml` (domain currently the preview URL — update on custom domain).
 
 ## User personas
@@ -47,7 +53,18 @@ Premium editorial design; mobile-first; restrained motion + reduced-motion suppo
 - LeadGate error state now shows server validation detail or a WhatsApp fallback link (user saw a generic failure on the deployed domain; deployed API verified healthy via curl — likely transient).
 - Self-tested via screenshots (desktop + mobile), gate flow PASS, PDF regenerated. Testing agent not run this session (user asked to conserve credits).
 
+## Implemented (2026-09-10 — direct download and content visibility repairs)
+- Deleted `components/brochure/LeadGate.jsx` and removed `GateProvider` from the brochure page. All three Download PDF buttons are native downloads with no lead capture, and retain their established test IDs. PDF delivery remains functional even when `/api/**` requests fail. Contact enquiry submission is unchanged and still works.
+- Added `backend/export_brochure.py` and published the real seven-page brochure as a bundled website asset. API endpoint now also requests attachment delivery rather than opening the browser PDF viewer. Exporter loads backend environment before brochure content.
+- Shared `SplitLines` now observes the stable heading parent rather than translated child text inside a clipping mask. Removed masking and opacity hiding; lines use a small, readable vertical entrance. Shared `Reveal` content is visible by default even if an intersection event is missed. Viewport margin now uses a predictable 40px instead of width-relative percentages.
+- Removed full clipping-mask image reveals from Intro and Materials and removed the homepage hero's scroll-driven text fade to zero. Added specific heading/image/pillar test IDs. Print output forces shared reveals to their visible, untransformed state.
+- Aligned brochure sticky action bar to the actual desktop header height; added test IDs to brochure service-detail links.
+- Regression found initial service hash links could fail to scroll. Services now waits for a layout frame, refreshes scroll dimensions and uses a numeric destination with a single scroll-margin offset. Index navigation uses React Router links; invalid encoded hashes are safely ignored.
+- Verification: testing agent report `test_reports/iteration_4.json`: **18/18 backend tests pass**, all brochure downloads and homepage visibility pass on desktop/mobile, including fast/slow scroll, reduced motion, fresh visits and API-outage simulation. Verified zero enquiry POSTs for download-only flows. Normal API integration is not mocked.
+- Follow-up after fixing the one reported service-link issue: desktop/mobile direct hash links, same-page index links, home-to-service and brochure-to-service navigation all pass (section top ~96px below the header); download rechecked successfully. See `test_reports/iteration_4_followup.json`.
+- Desktop 1920×800 and mobile 390×844 screenshots show the restored Intro heading and image; no document overflow observed. Production build compiled successfully and includes the bundled PDF.
+
 ## Backlog / next tasks
-- **P0**: Replace representative imagery with real Suvi Interior project photos (`content/images.js`, `projects.js`, `gallery.js`); confirm service copy; add real project names/years.
-- **P1**: Regenerate brochure PDF automatically when content changes (currently cached per process; restart backend to refresh). Email/WhatsApp notification on new enquiry (needs receiving email — Resend); founder/team story; verified Google rating + Business link (`site.googleReviews`); business hours; email + social links; update sitemap/robots domain on launch.
-- **P2**: Rate limiting/honeypot on `POST /api/enquiries`; simple admin view for enquiries; testimonials once approved; blog/journal.
+- **P0**: No known open blockers for the reported download and missing-content issues. User verification pending on the current preview.
+- **P1**: Replace representative imagery with real Suvi Interior project photos (`content/images.js`, `projects.js`, `gallery.js`, brochure content); confirm service copy and real project names/years. Extend existing visual polish to Projects/Services only if requested. Regenerate bundled brochure after content updates.
+- **P2**: Automatic brochure publication on content changes; email/WhatsApp notification on new contact enquiry (requires provider/receiving details); founder/team story; verified Google rating + Business link; business hours, email/social details; rate limiting/honeypot on enquiry endpoint; simple admin view; approved testimonials; blog/journal; optional desktop project-hover cursor. Update sitemap/robots domain when final business domain is confirmed.

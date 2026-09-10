@@ -91,13 +91,29 @@ export default function Services() {
 
   useEffect(() => {
     if (!hash) return;
-    const el = document.querySelector(hash);
+    let id;
+    try {
+      id = decodeURIComponent(hash.slice(1));
+    } catch {
+      return;
+    }
+    const el = document.getElementById(id);
     if (!el) return;
-    const t = setTimeout(() => {
-      if (lenis) lenis.scrollTo(el, { offset: -80 });
-      else el.scrollIntoView({ block: "start" });
-    }, 350);
-    return () => clearTimeout(t);
+    // Measure the newly rendered route before scrolling. Its height may not
+    // yet be reflected in Lenis's cached dimensions on first navigation.
+    const frame = requestAnimationFrame(() => {
+      const offset = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+      if (lenis) {
+        lenis.resize();
+        // A numeric destination avoids applying scroll-margin twice and uses
+        // the browser's actual position rather than a stale animated position.
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        lenis.scrollTo(top, { immediate: true, force: true });
+      } else {
+        el.scrollIntoView({ block: "start", behavior: "instant" });
+      }
+    });
+    return () => cancelAnimationFrame(frame);
   }, [hash, lenis]);
 
   return (
@@ -110,10 +126,10 @@ export default function Services() {
           <ol className="grid gap-x-8 gap-y-4 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <li key={s.slug}>
-                <a href={`#${s.slug}`} data-testid={`service-index-${s.slug}`} className="group flex min-h-[44px] items-baseline gap-4 py-2">
+                <Link to={`#${s.slug}`} data-testid={`service-index-${s.slug}`} className="group flex min-h-[44px] items-baseline gap-4 py-2">
                   <span className="label text-burgundy">{s.number}</span>
                   <span className="link-underline font-display text-2xl leading-none tracking-[-0.01em] sm:text-3xl">{s.title}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ol>

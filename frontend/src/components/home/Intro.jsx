@@ -32,7 +32,7 @@ export const Intro = () => {
               <span className="text-oxblood">01</span> The Studio <span className="text-line">/</span> {site.city}
             </p>
           </Reveal>
-          <SplitLines inView as="h2" delay={0.1} lines={["Designing", "spaces that", <span className="italic">feel like you.</span>]} className="h-display mt-8 text-[clamp(2.75rem,8vw,6.5rem)]" />
+          <SplitLines inView as="h2" data-testid="intro-heading" delay={0.1} lines={["Designing", "spaces that", <span className="italic">feel like you.</span>]} className="h-display mt-8 text-[clamp(2.75rem,8vw,6.5rem)]" />
           <Reveal delay={0.25} className="mt-10 grid gap-8 sm:grid-cols-2 lg:mt-14">
             <p className="lede">
               Suvi Interior is an interior design and furniture studio in Nashik. We design homes and make the furniture that goes into them — modular kitchens, wardrobes, TV units, cabinets and complete interiors.
@@ -49,7 +49,8 @@ export const Intro = () => {
             {pillars.map((p, i) => (
               <motion.li
                 key={p.n}
-                initial={reduce ? false : { opacity: 0, y: 20 }}
+                data-testid={`intro-pillar-${p.title.toLowerCase()}`}
+                initial={reduce ? false : { y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT}
                 transition={{ duration: 0.9, ease: EASE, delay: 0.1 + i * 0.12 }}
@@ -69,15 +70,9 @@ export const Intro = () => {
         </div>
 
         <div className="lg:col-span-4 lg:col-start-9 lg:pt-24">
-          <motion.div
-            initial={reduce ? false : { clipPath: "inset(100% 0 0 0)" }}
-            whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-            viewport={VIEWPORT}
-            transition={{ duration: 1.3, ease: EASE, delay: 0.15 }}
-            className="img-zoom"
-          >
+          <Reveal delay={0.15} y={14} className="img-zoom" data-testid="intro-image">
             <ParallaxImage image={introPortrait} ratio="3 / 4" sizes="(min-width: 1024px) 30vw, 100vw" strength={8} imgClassName="object-[center_30%]" />
-          </motion.div>
+          </Reveal>
           <Reveal delay={0.4} className="mt-4 flex items-center justify-between border-t border-line pt-4">
             <p className="label text-taupe">Bedroom · walnut slat wall</p>
             <p className="label text-oxblood">Representative</p>

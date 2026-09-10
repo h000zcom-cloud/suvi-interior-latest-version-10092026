@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-10",
+  "parent_report": "/app/test_reports/iteration_4.json",
+  "resolved_issue": "Services hash deep-link initial navigation did not scroll to its target section.",
+  "fix": "Wait for a layout frame, refresh Lenis dimensions, calculate an absolute numeric scroll destination using native scrollY and a single CSS scroll-margin offset. Use React Router links for the same-page index.",
+  "verification_method": "Focused Playwright via current external preview, desktop 1920x800 and mobile 390x844.",
+  "checks": [
+    {"case": "Desktop direct /services#modular-kitchens", "result": "PASS", "target_top_px": 96},
+    {"case": "Desktop service index to custom-furniture", "result": "PASS", "target_top_px": 95.875},
+    {"case": "Home service link to modular-kitchens", "result": "PASS", "target_top_px": 96},
+    {"case": "Brochure service details to bedroom-interiors", "result": "PASS", "target_top_px": 95.8125},
+    {"case": "Mobile direct /services#modular-kitchens", "result": "PASS", "target_top_px": 95.671875},
+    {"case": "Mobile service index to bedroom-interiors", "result": "PASS", "target_top_px": 96.421875},
+    {"case": "Mobile native PDF download after navigation repair", "result": "PASS", "filename": "Suvi-Interior-Brochure.pdf", "download_failure": null}
+  ],
+  "remaining_issues": [],
+  "user_verification_pending": true
+}

@@ -26,7 +26,6 @@ export const Hero = () => {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "14%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   useEffect(() => {
     const t = setTimeout(() => setStarted(true), introDelay * 1000);
@@ -78,7 +77,7 @@ export const Hero = () => {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.4, delay: introDelay + 0.6 }} className="frame-inset hidden sm:block" aria-hidden="true" />
 
-      <motion.div style={reduce ? undefined : { y: textY, opacity: textOpacity }} className="container-x relative z-10 flex h-full flex-col justify-end pb-[calc(env(safe-area-inset-bottom)+6rem)] sm:pb-16 lg:pb-16">
+      <motion.div style={reduce ? undefined : { y: textY }} className="container-x relative z-10 flex h-full flex-col justify-end pb-[calc(env(safe-area-inset-bottom)+6rem)] sm:pb-16 lg:pb-16">
         <motion.p {...enter(0.15)} className="label mb-5 flex items-center gap-4 text-ivory/75" data-testid="hero-meta">
           <span className="h-px w-8 bg-brass" aria-hidden="true" />
           {site.city} · {site.region}
@@ -86,6 +85,7 @@ export const Hero = () => {
 
         <SplitLines
           as="h1"
+          data-testid="hero-heading"
           delay={introDelay}
           lines={["Interiors that", "feel like", <span className="italic text-brass">home.</span>]}
           className="h-display text-[clamp(3.25rem,min(12vw,13.5svh),8rem)]"

@@ -1,6 +1,6 @@
 export const EASE = [0.22, 1, 0.36, 1];
 
-export const VIEWPORT = { once: true, margin: "0px 0px -12% 0px" };
+export const VIEWPORT = { once: true, margin: "0px 0px -40px 0px", amount: "some" };
 
 export const fadeUp = {
   hidden: { opacity: 0, y: 28 },

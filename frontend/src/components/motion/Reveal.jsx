@@ -7,11 +7,11 @@ export const Reveal = ({ children, delay = 0, y = 28, className, as = "div", dur
   const Comp = motion[as] || motion.div;
   return (
     <Comp
-      initial={reduce ? false : { opacity: 0, y }}
+      initial={reduce ? false : { y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={VIEWPORT}
       transition={{ duration, ease: EASE, delay }}
-      className={className}
+      className={cn("content-reveal", className)}
       {...rest}
     >
       {children}
@@ -19,23 +19,23 @@ export const Reveal = ({ children, delay = 0, y = 28, className, as = "div", dur
   );
 };
 
-export const SplitLines = ({ lines, className, lineClassName, delay = 0, stagger = 0.11, inView = false, as: Tag = "h1", ...rest }) => {
+export const SplitLines = ({ lines, className, lineClassName, delay = 0, stagger = 0.11, inView = false, as = "h1", ...rest }) => {
   const reduce = useReducedMotion();
-  const anim = inView ? { whileInView: "show", viewport: VIEWPORT } : { animate: "show" };
+  const Tag = motion[as] || motion.h1;
+  // Observe the stable heading, never a translated line inside a clipping mask.
+  // Lines remain readable even if an intersection event is delayed or missed.
+  const anim = inView && !reduce ? { whileInView: "show", viewport: VIEWPORT } : { animate: "show" };
   return (
-    <Tag className={className} {...rest}>
+    <Tag initial={reduce ? false : "hidden"} {...anim} className={cn("split-heading", className)} {...rest}>
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
-          <motion.span
-            className={cn("block will-change-transform", lineClassName)}
-            variants={{ hidden: { y: "112%" }, show: { y: "0%" } }}
-            initial={reduce ? "show" : "hidden"}
-            {...anim}
-            transition={{ duration: 1.15, ease: EASE, delay: delay + i * stagger }}
-          >
-            {line}
-          </motion.span>
-        </span>
+        <motion.span
+          key={i}
+          className={cn("split-line block", lineClassName)}
+          variants={{ hidden: { y: 14 }, show: { y: 0 } }}
+          transition={{ duration: reduce ? 0 : 0.85, ease: EASE, delay: reduce ? 0 : delay + i * stagger }}
+        >
+          {line}{i < lines.length - 1 ? " " : null}
+        </motion.span>
       ))}
     </Tag>
   );
