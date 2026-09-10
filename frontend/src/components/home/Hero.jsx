@@ -45,7 +45,7 @@ export const Hero = () => {
   });
 
   return (
-    <section ref={ref} data-testid="hero" className="relative h-[100svh] min-h-[640px] overflow-hidden bg-night text-ivory">
+    <section ref={ref} data-testid="hero" className="hero-shell relative min-h-[640px] overflow-hidden bg-night text-ivory">
       <motion.div className="absolute inset-0" style={reduce ? undefined : { y: imgY }}>
         {SLIDES.map((s, i) => (
           <motion.div
@@ -77,7 +77,7 @@ export const Hero = () => {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.4, delay: introDelay + 0.6 }} className="frame-inset hidden sm:block" aria-hidden="true" />
 
-      <motion.div style={reduce ? undefined : { y: textY }} className="container-x relative z-10 flex h-full flex-col justify-end pb-[calc(env(safe-area-inset-bottom)+6rem)] sm:pb-16 lg:pb-16">
+      <motion.div style={reduce ? undefined : { y: textY }} className="container-x hero-content relative z-10 flex flex-col justify-end pb-[calc(env(safe-area-inset-bottom)+6rem)] sm:pb-16 lg:pb-16">
         <motion.p {...enter(0.15)} className="label mb-5 flex items-center gap-4 text-ivory/75" data-testid="hero-meta">
           <span className="h-px w-8 bg-brass" aria-hidden="true" />
           {site.city} · {site.region}

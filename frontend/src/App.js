@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ReactLenis } from "lenis/react";
 import "@/App.css";
 import "@/atelier.css";
+import "@/brand-chrome.css";
 import { HeaderThemeProvider } from "@/components/layout/HeaderTheme";
 import { Preloader } from "@/components/layout/Preloader";
 import { Header } from "@/components/layout/Header";
@@ -23,10 +24,18 @@ import { Privacy, Terms, NotFound } from "@/pages/Legal";
 function Shell() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
 
   return (
     <HeaderThemeProvider>
@@ -35,7 +44,7 @@ function Shell() {
       </a>
       <Preloader />
       <Header menuOpen={menuOpen} onToggle={() => setMenuOpen((o) => !o)} />
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu open={menuOpen} onClose={closeMenu} />
         <Routes key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
