@@ -51,7 +51,7 @@ CONTENT = {
             "description": "A kitchen is used more than any other room. We plan each one around how you cook, store and move — then resolve it into calm, well-proportioned cabinetry with finishes chosen to last.",
             "features": ["Layout & storage planning", "Tall units, drawers and pull-outs", "Countertop & finish selection", "Hardware and lighting coordination"],
             "ideal_for": ["New homes", "Kitchen renovations", "Compact apartments"],
-            "image": u("1771270731051-9cfbb7222946"),
+            "image": u("1564540586988-aa4e53c3d799"),
         },
         {
             "number": "02",

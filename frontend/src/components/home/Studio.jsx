@@ -13,7 +13,7 @@ export const Studio = ({ index = "08" }) => (
             <span className="text-burgundy">{index}</span> The Studio
           </p>
         </Reveal>
-        <SplitLines inView as="h2" delay={0.1} lines={["Visit us", "in Nashik."]} className="h-section mt-8" />
+        <SplitLines as="h2" lines={["A conversation.", <em>A visit. A beginning.</em>]} className="editorial-heading mt-8 text-oxblood" data-testid="studio-heading" />
         <Reveal delay={0.2} className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-1">
           <address className="text-[15px] not-italic leading-relaxed" data-testid="studio-address">
             <span className="block font-medium">{site.name}</span>

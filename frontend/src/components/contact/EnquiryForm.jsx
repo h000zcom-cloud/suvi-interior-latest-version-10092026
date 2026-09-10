@@ -1,8 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { motion, AnimatePresence } from "framer-motion";
 import { projectTypes, site } from "@/content/site";
-import { EASE } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -56,9 +54,9 @@ export const EnquiryForm = ({ presetType }) => {
   };
 
   return (
-    <AnimatePresence mode="wait">
+    <>
       {status === "success" ? (
-        <motion.div key="success" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }} className="border-t border-line pt-10" data-testid="contact-success" role="status">
+        <div className="border-t border-line pt-10" data-testid="contact-success" role="status">
           <p className="label flex items-center gap-4 text-taupe"><span className="h-px w-8 bg-burgundy" />Enquiry received</p>
           <p className="h-section mt-6">
             Thank <span className="italic normal-case">you.</span>
@@ -66,9 +64,9 @@ export const EnquiryForm = ({ presetType }) => {
           <p className="lede mt-6 max-w-md">
             Your enquiry has been received. The {site.name} team will get in touch with you shortly.
           </p>
-        </motion.div>
+        </div>
       ) : (
-        <motion.form key="form" onSubmit={submit} noValidate initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="grid gap-8 sm:grid-cols-2" data-testid="contact-form">
+        <form onSubmit={submit} noValidate className="grid gap-8 sm:grid-cols-2" data-testid="contact-form">
           <Field label="Name" error={errors.name} className="sm:col-span-1">
             <input id="name" data-testid="contact-name-input" className="field" value={form.name} onChange={set("name")} autoComplete="name" placeholder="Your name" required aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "error-name" : undefined} />
           </Field>
@@ -108,9 +106,9 @@ export const EnquiryForm = ({ presetType }) => {
               {serverError}
             </p>
           )}
-        </motion.form>
+        </form>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

@@ -1,96 +1,23 @@
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { PageWrap } from "@/components/layout/PageWrap";
 import { Seo } from "@/components/layout/Seo";
 import { PageHero } from "@/components/ui-custom/PageHero";
-import { Reveal, SplitLines } from "@/components/motion/Reveal";
-import { ParallaxImage } from "@/components/motion/Picture";
+import { Picture } from "@/components/motion/Picture";
 import { CtaBand } from "@/components/ui-custom/CtaBand";
 import { about } from "@/content/about";
-import { site } from "@/content/site";
-import { cn } from "@/lib/utils";
-
-const CRUMBS = [
-  { name: "Home", path: "/" },
-  { name: "Studio", path: "/about" },
-];
-
-const Section = ({ s, index }) => {
-  const flip = index % 2 === 1;
-  return (
-    <section id={s.key} data-testid={`about-${s.key}`} className="border-t border-line">
-      <div className="container-x grid gap-12 py-20 md:py-28 lg:grid-cols-12 lg:gap-8">
-        <div className={cn("lg:col-span-5", flip ? "lg:col-start-8 lg:order-2" : "lg:col-start-1")}>
-          <Reveal>
-            <p className="label flex items-center gap-4 text-taupe"><span className="text-burgundy">0{index + 1}</span>{s.label}</p>
-          </Reveal>
-          <SplitLines inView as="h2" delay={0.1} lines={s.heading} className="h-section mt-7 text-[clamp(2rem,4.2vw,3.5rem)]" />
-          <Reveal delay={0.2} className="mt-8 flex flex-col gap-5">
-            {s.body.map((p, i) => (
-              <p key={i} className="lede max-w-md">
-                {p}
-              </p>
-            ))}
-            {s.ownerNote && <p className="max-w-md text-base leading-relaxed text-charcoal">{s.ownerNote}</p>}
-          </Reveal>
-          {s.principles && (
-            <ol className="mt-12 border-t border-line">
-              {s.principles.map((p, i) => (
-                <Reveal key={p.n} as="li" delay={0.1 * i} className="grid grid-cols-[3.5rem_1fr] gap-4 border-b border-line py-6">
-                  <span className="label pt-1 text-burgundy">{p.n}</span>
-                  <div>
-                    <h3 className="h-sub">{p.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-taupe">{p.text}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </ol>
-          )}
-        </div>
-        {s.image && (
-          <Reveal delay={0.15} className={cn("lg:col-span-6", flip ? "lg:col-start-1 lg:order-1" : "lg:col-start-7", index % 3 === 1 && "lg:col-span-5 lg:pt-16")}>
-            <ParallaxImage image={s.image} ratio={index % 3 === 1 ? "3 / 4" : "4 / 3"} sizes="(min-width: 1024px) 50vw, 100vw" strength={6} />
-          </Reveal>
-        )}
-      </div>
-    </section>
-  );
-};
+import { materials } from "@/content/images";
 
 export default function About() {
-  return (
-    <PageWrap theme="light" testId="about-page">
-      <Seo title="The Studio — Interior Designers in Nashik" description={`About Suvi Interior — an interior design and furniture manufacturing studio at Pandhari Mala, Ambad–Uttam Nagar Road, Nashik. ${site.positioning}`} path="/about" crumbs={CRUMBS} />
-      <PageHero label={`The Studio · ${site.city}`} lines={["About", "Suvi Interior"]} image={about.heroImage} />
-
-      <section className="container-x section-sm">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <Reveal className="lg:col-span-3">
-            <p className="label flex items-center gap-4 text-taupe"><span className="h-px w-8 bg-burgundy" />The Studio</p>
-          </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-8 lg:col-start-5">
-            <p className="h-statement" data-testid="about-intro">
-              {about.intro}
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {about.sections.map((s, i) => (
-        <Section key={s.key} s={s} index={i} />
-      ))}
-
-      {about.founder && (
-        <section className="border-t border-line" data-testid="about-founder">
-          <div className="container-x grid gap-12 py-20 lg:grid-cols-12">
-            <div className="lg:col-span-5">
-              <p className="label text-taupe">Founder</p>
-              <h2 className="mt-6 font-display text-4xl leading-none">{about.founder.name}</h2>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-taupe">{about.founder.bio}</p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      <CtaBand lines={["Let's talk", "about your", "home."]} text="Tell us about your space and what you want it to become." />
-    </PageWrap>
-  );
+  const story=about.sections.find(s=>s.key==="story"), philosophy=about.sections.find(s=>s.key==="philosophy"), craft=about.sections.find(s=>s.key==="craft");
+  return <PageWrap testId="about-page">
+    <Seo title="The Studio — Suvi Interior, Nashik" description={about.intro} path="/about" crumbs={[{name:"Home",path:"/"},{name:"Studio",path:"/about"}]} />
+    <PageHero label="03 / The studio" lines={["Drawn with care.", <em>Made with purpose.</em>]} image={about.heroImage} text="Suvi Interior. An interior design and furniture studio rooted in Nashik." />
+    <section className="container-x section" data-testid="about-story"><div className="chapter-top"><p className="editorial-label">Our story / Nashik</p><p className="text-xs">Designers. Makers. One studio.</p></div><div className="grid gap-10 lg:grid-cols-12"><h2 className="editorial-heading text-oxblood lg:col-span-5">A studio built<br /><em>on making.</em></h2><div className="lg:col-span-6 lg:col-start-7"><p className="editorial-lede text-charcoal" data-testid="about-intro">{about.intro}</p>{story.body.map((p,i)=><p className="mt-5 text-sm leading-[1.9] text-taupe" key={i}>{p}</p>)}</div></div></section>
+    <section className="bg-oxblood text-white" data-testid="about-philosophy"><div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-2"><Picture image={philosophy.image} ratio="4 / 5" className="max-w-lg" sizes="(min-width:1024px) 40vw,100vw" /><div className="flex flex-col justify-center"><p className="editorial-label mb-8 text-white/65">Our point of view</p><h2 className="editorial-heading">Less noise.<br /><em>More meaning.</em></h2>{philosophy.body.map((p,i)=><p className="editorial-lede mt-7 text-white/80" key={i}>{p}</p>)}<div className="mt-10 grid grid-cols-3 gap-5 border-t border-white/20 pt-6" data-testid="about-believe">{["Function","Craft","Personal"].map((p,i)=><div key={p}><p className="text-[10px] text-white/60">0{i+1}</p><p className="mt-3 font-display text-2xl">{p}</p></div>)}</div></div></div></section>
+    <section className="container-x section" data-testid="about-craft"><div className="chapter-top"><p className="editorial-label">The maker's perspective</p><p className="text-xs">It's in the details.</p></div><div className="grid gap-12 lg:grid-cols-2"><div><h2 className="editorial-heading text-oxblood">The hand.<br />The eye.<br /><em>The finished piece.</em></h2>{craft.body.map((p,i)=><p className="editorial-lede mt-6 text-taupe" key={i}>{p}</p>)}<Link to="/process" data-testid="about-process-link" className="btn-text mt-8">How it comes together<ArrowUpRight className="h-4 w-4" /></Link></div><div className="grid grid-cols-2 items-start gap-5"><Picture image={materials[0]} ratio="3 / 4" /><Picture image={materials[4]} ratio="3 / 4" className="mt-20" /><p className="col-span-2 text-xs text-taupe">Grain. Joinery. The detail that makes a difference.</p></div></div></section>
+    <section data-testid="about-approach" className="container-x border-t border-line py-10"><Link to="/process" className="flex items-center justify-between gap-8 text-oxblood" data-testid="about-approach-link"><span className="font-display text-3xl">Five steps. One conversation.</span><ArrowUpRight className="h-6 w-6 shrink-0" /></Link></section>
+    {about.founder && <section className="container-x section" data-testid="about-founder"><h2 className="editorial-heading text-oxblood">{about.founder.name}</h2><p className="editorial-lede mt-5">{about.founder.bio}</p></section>}
+    <CtaBand />
+  </PageWrap>;
 }

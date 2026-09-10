@@ -1,84 +1,10 @@
-import { Reveal, SplitLines } from "@/components/motion/Reveal";
-import { ParallaxImage } from "@/components/motion/Picture";
+import { Picture } from "@/components/motion/Picture";
 import { materials } from "@/content/images";
-import { cn } from "@/lib/utils";
 
-const LAYOUT = [
-  "md:col-span-4",
-  "md:col-span-4 md:col-start-6 md:mt-14",
-  "md:col-span-3 md:col-start-10",
-  "md:col-span-3 md:col-start-2 md:mt-6",
-  "md:col-span-4 md:col-start-6 md:mt-6",
-  "md:col-span-3 md:col-start-10 md:mt-20",
-];
-
-export const Materials = ({ index = "06" }) => {
-  return (
-    <section
-      data-testid="materials-section"
-      className="border-t border-line bg-ivory-2"
-    >
-      <div className="container-x section">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-6">
-            <Reveal>
-              <p className="label flex items-center gap-4 text-taupe">
-                <span className="text-oxblood">{index}</span> Materials &amp;
-                Craft
-              </p>
-            </Reveal>
-            <SplitLines
-              inView
-              as="h2"
-              data-testid="materials-heading"
-              delay={0.1}
-              lines={["Made to be", "touched."]}
-              className="h-section mt-8"
-            />
-          </div>
-          <Reveal
-            delay={0.2}
-            className="flex items-end lg:col-span-5 lg:col-start-8"
-          >
-            <p className="lede max-w-md">
-              Wood, stone, metal and fabric are chosen for how they feel in the
-              hand and how they age in a home. Grain is matched across doors,
-              edges are finished cleanly and every handle sits exactly where the
-              hand expects it.
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 no-scrollbar md:mt-20 md:grid md:grid-cols-12 md:items-start md:gap-6 md:overflow-visible md:pb-0">
-          {materials.map((m, i) => (
-            <Reveal
-              key={m.title}
-              delay={(i % 3) * 0.08}
-              className={cn(
-                "w-[70vw] shrink-0 snap-start sm:w-[46vw] md:w-auto",
-                LAYOUT[i],
-              )}
-            >
-              <div className="img-zoom">
-                <ParallaxImage
-                  image={m}
-                  ratio={m.ratio}
-                  strength={4 + (i % 3) * 2}
-                  sizes="(min-width: 768px) 33vw, 70vw"
-                  data-testid={`material-${i}`}
-                />
-              </div>
-              <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-line/80 pt-3">
-                <p className="flex items-baseline gap-3 font-display text-2xl leading-none">
-                  <span className="label text-oxblood">0{i + 1}</span>
-                  {m.title}
-                </p>
-                <p className="label text-right text-taupe">{m.note}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+export const Materials = ({ index = "05" }) => (
+  <section className="border-t border-line bg-white" data-testid="materials-section"><div className="container-x section">
+    <div className="chapter-top"><p className="editorial-label">{index} / The material library</p><p className="text-xs leading-relaxed">Honest textures. Thoughtful finishes. Details you notice every day.</p></div>
+    <h2 className="editorial-heading mb-10 text-oxblood" data-testid="materials-heading">Beauty you can <em>feel.</em></h2>
+    <div className="material-grid">{materials.map((m,i)=><figure key={m.title} data-testid={`material-${i}`}><Picture image={m} ratio="4 / 3" sizes="(min-width:768px) 30vw,48vw" className="editorial-image" /><figcaption className="mt-4 border-t border-line pt-3"><div className="flex items-baseline justify-between gap-2"><h3>{m.title}</h3><span className="text-[10px] text-oxblood">0{i+1}</span></div><p className="mt-1 text-[11px] leading-relaxed text-taupe">{m.note}</p></figcaption></figure>)}</div>
+  </div></section>
+);

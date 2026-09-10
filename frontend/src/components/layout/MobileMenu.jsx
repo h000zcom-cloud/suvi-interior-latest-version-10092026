@@ -42,7 +42,7 @@ export const MobileMenu = ({ open, onClose }) => {
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
-          className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-night text-ivory lg:hidden"
+          className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-oxblood-deep text-ivory xl:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

@@ -18,7 +18,7 @@ export const WhatsAppFloat = ({ hidden }) => {
         data-testid="whatsapp-float"
         aria-label="Chat with Suvi Interior on WhatsApp"
         className={cn(
-          "group fixed bottom-8 right-8 z-40 hidden h-14 w-14 items-center justify-center rounded-full bg-night text-ivory shadow-[0_18px_40px_-16px_rgba(20,18,16,0.55)] transition-[background-color,color,transform,opacity] duration-500 ease-out hover:-translate-y-0.5 hover:bg-brass hover:text-charcoal lg:flex",
+          "group fixed bottom-8 right-8 z-40 hidden h-14 w-14 items-center justify-center rounded-full bg-oxblood text-ivory shadow-lg transition-[background-color,transform,opacity] duration-300 hover:-translate-y-1 hover:bg-oxblood-deep xl:flex",
           hidden ? "pointer-events-none opacity-0" : "opacity-100",
         )}
       >
@@ -29,14 +29,14 @@ export const WhatsAppFloat = ({ hidden }) => {
       <div
         data-testid="mobile-sticky-bar"
         className={cn(
-          "glass-dark fixed inset-x-0 bottom-0 z-30 grid grid-cols-[1fr_1.35fr_1fr] border-t border-brass/25 pb-[env(safe-area-inset-bottom)] text-ivory transition-transform duration-500 ease-out lg:hidden",
+          "bg-oxblood-deep fixed inset-x-0 bottom-0 z-30 grid grid-cols-[1fr_1.35fr_1fr] border-t border-white/20 pb-[env(safe-area-inset-bottom)] text-ivory transition-transform duration-300 xl:hidden",
           hidden && "translate-y-full",
         )}
       >
         <a href={telLink()} data-testid="mobile-sticky-call" className={cn(cell, "text-ivory/85")}>
           <Phone className="h-4 w-4" strokeWidth={1.4} /> Call
         </a>
-        <a href={waLink()} target="_blank" rel="noopener noreferrer" data-testid="mobile-sticky-whatsapp" className={cn(cell, "bg-brass text-charcoal")}>
+        <a href={waLink()} target="_blank" rel="noopener noreferrer" data-testid="mobile-sticky-whatsapp" className={cn(cell, "bg-oxblood text-white")}>
           <WhatsAppIcon className="h-4 w-4" /> WhatsApp
         </a>
         <Link to="/brochure" data-testid="mobile-sticky-brochure" className={cn(cell, "text-ivory/85")}>

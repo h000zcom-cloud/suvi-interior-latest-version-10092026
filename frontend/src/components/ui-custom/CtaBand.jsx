@@ -1,43 +1,16 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Phone } from "lucide-react";
-import { SplitLines, Reveal } from "@/components/motion/Reveal";
-import { WhatsAppIcon } from "@/components/ui-custom/WhatsAppIcon";
+import { ArrowUpRight } from "lucide-react";
 import { site } from "@/content/site";
 import { telLink, waLink } from "@/lib/contact";
 
-export const CtaBand = ({
-  lines = ["Let's create", "a space", "that feels", "like yours."],
-  text = "Tell us about your space, your vision and what you want it to feel like.",
-  primaryLabel = "Start a Project",
-  whatsappMessage,
-  testId = "final-cta",
-}) => (
-  <section data-testid={testId} className="bg-night text-ivory">
-    <div className="container-x section grid gap-14 lg:grid-cols-12">
-      <div className="lg:col-span-7">
-        <Reveal>
-          <p className="label flex items-center gap-4 text-ivory/55"><span className="h-px w-8 bg-brass" />Begin</p>
-        </Reveal>
-        <SplitLines inView as="h2" lines={lines} delay={0.1} className="h-display mt-8 text-[clamp(2.75rem,9vw,6.5rem)]" />
+export const CtaBand = ({ lines = ["Good spaces begin", <em>with a conversation.</em>], text = "Tell us about the home you have in mind. We'll take it from there.", primaryLabel = "Start a project", whatsappMessage, testId = "final-cta" }) => (
+  <section className="brand-cta border-t border-oxblood/20" data-testid={testId}>
+    <div className="container-x py-16 md:py-24">
+      <p className="editorial-label mb-8">A place for your next chapter</p>
+      <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:items-end">
+        <h2 className="editorial-heading" data-testid={`${testId}-heading`}>{lines.map((l,i)=><span key={i}>{l}{i < lines.length - 1 ? " " : ""}</span>)}</h2>
+        <div className="lg:justify-self-end"><p className="editorial-lede mb-7">{text}</p><Link to="/contact" className="btn-brand" data-testid={`${testId}-start`}>{primaryLabel}<ArrowUpRight className="h-4 w-4" /></Link><div className="mt-6 flex flex-wrap gap-6 text-xs"><a href={telLink()} data-testid={`${testId}-call`} className="link-underline">{site.phone.display}</a><a href={waLink(whatsappMessage)} target="_blank" rel="noopener noreferrer" data-testid={`${testId}-whatsapp`} className="link-underline">WhatsApp</a></div></div>
       </div>
-      <Reveal delay={0.25} className="flex flex-col justify-end gap-10 lg:col-span-4 lg:col-start-9">
-        <p className="max-w-sm text-base leading-relaxed text-ivory/70">{text}</p>
-        <div className="flex flex-col items-start gap-6">
-          <Link to="/contact" data-testid={`${testId}-start`} className="btn-gold">
-            {primaryLabel} <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-          </Link>
-          <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-night-line pt-6">
-            <a href={telLink()} data-testid={`${testId}-call`} className="arrow-link text-ivory/75 hover:text-brass">
-              <Phone className="h-3.5 w-3.5" strokeWidth={1.5} /> {site.phone.display}
-            </a>
-            {site.whatsapp.enabled && (
-              <a href={waLink(whatsappMessage)} target="_blank" rel="noopener noreferrer" data-testid={`${testId}-whatsapp`} className="arrow-link text-ivory/75 hover:text-brass">
-                <WhatsAppIcon className="h-3.5 w-3.5" /> WhatsApp
-              </a>
-            )}
-          </div>
-        </div>
-      </Reveal>
     </div>
   </section>
 );

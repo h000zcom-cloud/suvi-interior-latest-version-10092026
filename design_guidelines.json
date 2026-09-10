@@ -1,155 +1,211 @@
 {
-  "project_name": "Suvi Interior — Ultra Luxury Interior & Architectural Studio",
-  "archetype": "ARCHETYPE 5: LUXURY (High-End Interior Architecture & Craftsmanship)",
-  "context": "Marketing Site / Luxury Atelier & Portfolio + Interactive Digital & Print Brochure",
-  "problem_analysis": {
-    "user_feedback": "User disliked Bodoni Moda on top (wordmark feels fragile/dated with generic wide tracking). Demands a far more luxurious, top 1% design benchmark, high-end editorial rhythm, phone-specific responsiveness, and a dedicated company brochure (/brochure) with print-to-PDF / A4 elegance.",
-    "emotional_goal": "Tactile quiet luxury, architectural gravitas, warmth of raw timber and milled stone, uncompromising craftsmanship, bespoke confidence.",
-    "anti_ai_rules_enforced": [
-      "No Bodoni Moda, No Inter, No Roboto for headings",
-      "No center-everything disease: embrace asymmetric architectural margins and offsets",
-      "No generic 100% full-screen gradients; use tactile grain, crisp hairline borders, and museum-grade typography",
-      "No transparent dropdowns or ungrounded headers: glassmorphism with crisp 1px borders and saturate boost",
-      "Dedicated mobile floating contact bar and full-screen tactile drawer menu"
-    ]
-  },
-  "typography": {
-    "pairing_concept": "The Architectural Atelier — Cormorant Garamond / Cabinet Grotesk / Plus Jakarta Sans",
-    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap",
-    "wordmark_treatment": {
-      "font_family": "Cormorant Garamond (or Cinzel for crisp Roman stone-carved alternative)",
-      "recommended_primary": "Cormorant Garamond",
-      "style": "font-serif text-[17px] sm:text-[19px] tracking-[0.28em] uppercase font-light text-charcoal",
-      "wordmark_structure": "SUVI INTERIOR — crafted with a thin golden dot or subtle vertical hairline divider between studio and city: 'SUVI INTERIOR' with sub-caption 'ATELIER & CRAFT • NASHIK'",
-      "rationale": "Cormorant Garamond possesses graceful proportions, bespoke high-contrast strokes and architectural warmth, solving the harshness and clunky feel of Bodoni Moda."
-    },
-    "font_families": {
-      "display": "\"Cormorant Garamond\", Georgia, serif",
-      "body": "\"Plus Jakarta Sans\", system-ui, -apple-system, sans-serif",
-      "accent": "\"Cinzel\", \"Cormorant Garamond\", serif"
-    },
-    "scale": {
-      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-serif font-light leading-[1.05] tracking-tight",
-      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-normal leading-[1.12] tracking-tight",
-      "h3_sub": "text-xl sm:text-2xl font-serif font-normal leading-snug",
-      "h4_card": "text-lg sm:text-xl font-medium tracking-normal",
-      "body": "text-base sm:text-[15px] leading-relaxed font-light",
-      "caption_label": "text-[11px] uppercase tracking-[0.22em] font-medium"
-    }
-  },
-  "colors": {
-    "palette_name": "Venetian Alabaster, Smoked Walnut & Aged Brass",
-    "swatches": {
+  "brand": {
+    "name": "Suvi Interior",
+    "descriptor": "Interior Design & Custom Furniture Studio · Nashik",
+    "location": "Nashik, Maharashtra",
+    "emotional_archetype": "ARCHETYPE 5: LUXURY & ARCHITECTURAL PRECISION (Warm Editorial Minimalism)",
+    "aesthetic_fusion": [
+      "Milanese high-end residential atelier (slotted joinery, rich oxblood lacquer, warm stone)",
+      "Swiss editorial publication layout (asymmetric typography, tight tracking, deep grid tension)",
+      "Tactile craftsmanship & materiality (walnut veneer, aged brass, raw limestone, fine linen)"
+    ],
+    "brand_color_core": {
+      "oxblood_primary": "#58130E",
+      "oxblood_deep": "#3E0C09",
+      "oxblood_soft": "#7A2A22",
+      "oxblood_tint": "#F6ECE9",
       "ivory_bg": "#F8F6F0",
-      "ivory_surface": "#F2EFE9",
-      "ivory_elevated": "#EAE5DC",
-      "charcoal_deep": "#141210",
-      "charcoal_subtle": "#25211D",
-      "smoked_walnut": "#4A3B32",
-      "warm_taupe": "#766C63",
-      "aged_brass": "#C5A880",
-      "brass_gold": "#B38F5F",
-      "terracotta_accent": "#8A4D3B",
-      "border_hairline": "rgba(37, 33, 29, 0.12)",
-      "border_light": "rgba(248, 246, 240, 0.15)"
-    },
-    "contrast_compliance": {
-      "charcoal_on_ivory": "14.2:1 (AAA Pass)",
-      "aged_brass_on_charcoal": "6.8:1 (AA+ Pass)",
-      "taupe_on_ivory": "4.8:1 (AA Pass)"
+      "charcoal_night": "#141210",
+      "brass_accent": "#C5A880",
+      "taupe_muted": "#766C63",
+      "border_line": "#DCD5C8"
     }
   },
-  "component_guidelines": {
-    "header": {
-      "style": "Sticky/fixed nav with solid or crystal glass backdrop (bg-[#F8F6F0]/85 backdrop-blur-xl border-b border-[rgba(37,33,29,0.08)]). Never transparent over dark areas without explicit scrim. Left: Wordmark 'SUVI INTERIOR' with tracking-[0.28em] in Cormorant Garamond. Center: Minimalist links ('Projects', 'Services', 'Studio', 'Brochure', 'Process'). Right: 'Download Brochure' or 'Consult Studio' button.",
-      "data_test_id": "site-header"
+  "critical_fixes_and_user_mandates": [
+    "GLOBAL APPLICATION OF BRAND PRIMARY #58130e: The signature oxblood (#58130e) was previously isolated or barely felt. It MUST now permeate all pages systematically: header badges, category filter active states, hover borders, interactive pills, page hero accents, CTA backgrounds, quotation rules, timeline markers, and card accents.",
+    "NO BLANK PAGES / NO GATED ANIMATION DEPENDENCIES: Technical flaw was opacity: 0 AnimatePresence route wrappers and delayed entrance triggers blocking renders. All pages must render content immediately with default opacity: 1 and pure CSS or non-blocking motion.",
+    "DIRECT PDF BROCHURE DOWNLOAD: Zero form gates. Clicking 'Download PDF' anywhere on the site or /brochure page triggers immediate direct browser download of the 7-page studio document.",
+    "DISTINCT INNER PAGE PERSONAS & LAYOUT REVOLUTION: The user noted 'I liked the hero section of the homepage a little bit but from there I do not like anything'. Homepage below hero and inner pages (/projects, /services, /about, /process, /gallery, /contact, /brochure) must break away from generic stacked cards into varied asymmetric editorial layouts: magazine spreads, horizontal project registries, modular specification sheets, and architectural atelier dossiers.",
+    "PRESERVE FACTUAL TRUTH: Never invent fake awards, client names, or statistics. All imagery labeled truthfully as 'Representative studio craft archive' until Nashik workshop capture is uploaded."
+  ],
+  "typography": {
+    "pairing_strategy": "The Haute Architectural Duo (Cormorant Garamond + Plus Jakarta Sans)",
+    "fonts": {
+      "display": {
+        "family": "Cormorant Garamond, Georgia, serif",
+        "weights": ["300 (Light)", "400 (Regular)", "500 (Medium)", "600 (SemiBold)"],
+        "usage": "All main section headings, hero statements, project names, quotation marks, numbered indexes"
+      },
+      "sans": {
+        "family": "Plus Jakarta Sans, -apple-system, sans-serif",
+        "weights": ["300 (Light body)", "400 (Regular)", "500 (Medium)", "600 (SemiBold uppercase)"],
+        "usage": "Body paragraphs, metadata tags, navigation, buttons, form inputs, technical specs"
+      }
     },
-    "hero": {
-      "style": "Architectural split or full-bleed editorial canvas with warm wood/marble photography overlay max bg-black/40 (never darker). Large statement H1 'Crafting Quiet Magnificence for Living.' Subtitle with generous line-height. Direct CTA: 'Explore Portfolio' + 'View 2026 Studio Brochure'.",
-      "overlay_opacity": "bg-black/35 to bg-black/45"
+    "scale_and_hierarchy": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-light font-display leading-[0.98] tracking-tight",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-light font-display leading-[1.05] tracking-tight text-charcoal",
+      "h3_card_title": "text-xl sm:text-2xl font-normal font-display leading-tight",
+      "h4_subheading": "text-lg sm:text-xl font-medium font-sans tracking-tight",
+      "body_lead": "text-base sm:text-lg leading-[1.75] font-light text-charcoal/80",
+      "body_regular": "text-sm sm:text-base leading-relaxed font-light text-charcoal/75",
+      "overline_label": "text-[11px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-oxblood"
+    }
+  },
+  "color_palette_system": {
+    "brand_primary": {
+      "hex": "#58130E",
+      "tailwind_token": "oxblood",
+      "role": "Primary brand anchor used globally across buttons, active tab indicators, timeline bullets, borders, stat highlights, and hero accents"
     },
-    "brochure_page": {
-      "route": "/brochure",
-      "concept": "A dual-mode luxury editorial publication: interactive digital magazine on web with flip/spread preview, plus high-res print stylesheet for A4 luxury brochure export/download.",
-      "sections": [
-        "Brochure Cover Spread (Gold deboss aesthetic, Nashik Atelier, Established 2018)",
-        "Curator's Letter & Design Philosophy by Suvi Interior",
-        "Atelier Capabilities (Modular Kitchens, Italian Wardrobes, TV Architecture, Custom Solid Timber)",
-        "Flagship Projects Showcase with Blueprint Sketches and Material Spec Sheets",
-        "Materials & Craftsmanship Library (Veneer, Quartz, Brass hardware, Soft-close Blum mechanisms)",
-        "Studio Location Map & Direct Consultation VIP Booking",
-        "Floating / Top Action: 'Download Studio Brochure (PDF)' triggering window.print() with custom @media print CSS"
-      ],
-      "print_styles": "Included in print stylesheet: page-break-after: always, hides header/footer/chat-floats, renders gorgeous full-page A4 editorial booklet layout."
+    "brand_deep": {
+      "hex": "#3E0C09",
+      "tailwind_token": "oxblood-deep",
+      "role": "Rich dark oxblood for footer backgrounds, contrast callout cards, and active pressed states"
     },
-    "sticky_mobile_bar": {
-      "style": "Fixed bottom-0 inset-x-0 z-40 bg-[#141210]/95 backdrop-blur-lg border-t border-[#C5A880]/20 px-4 py-3 flex items-center justify-between gap-3 md:hidden",
-      "actions": [
-        "Direct Call: +91 97020 39381 (data-testid='mobile-bar-call')",
-        "WhatsApp Direct: Chat with Studio (data-testid='mobile-bar-whatsapp')",
-        "Brochure View: Quick PDF link (data-testid='mobile-bar-brochure')"
+    "brand_soft_tint": {
+      "hex": "#F6ECE9",
+      "tailwind_token": "oxblood-soft",
+      "role": "Subtle tinted ivory background for highlighted editorial callouts, quote panels, and input focus glows"
+    },
+    "brass_accent": {
+      "hex": "#C5A880",
+      "tailwind_token": "brass",
+      "role": "Muted satin brass for geometric diamonds, rule lines, and dark-theme highlights"
+    },
+    "base_ivory": {
+      "hex": "#F8F6F0",
+      "tailwind_token": "ivory",
+      "role": "Warm architectural parchment surface (prevents sterile hospital white)"
+    },
+    "base_charcoal": {
+      "hex": "#141210",
+      "tailwind_token": "charcoal",
+      "role": "Deep soot charcoal for primary text, nocturnal page backgrounds, and framing borders"
+    },
+    "neutral_line": {
+      "hex": "#DCD5C8",
+      "tailwind_token": "line",
+      "role": "Crisp 1px architectural divider strokes"
+    }
+  },
+  "page_by_page_redesign_blueprint": {
+    "global_header_and_navigation": {
+      "concept": "Floating atelier monolithic bar with crystal glass backing & global oxblood accent",
+      "layout": "Fixed top-0 inset-x-0 z-50 h-20 px-6 sm:px-10 lg:px-16 flex items-center justify-between border-b border-charcoal/10 backdrop-blur-xl bg-ivory/85",
+      "elements": [
+        "Brand Wordmark: SUVI INTERIOR in Cormorant Garamond with small rotated brass diamond separator",
+        "Desktop Links: Projects, Services, Studio, Process, Gallery, Brochure with oxblood active indicator dot",
+        "Right Cluster: Nashik phone direct link + global oxblood CTA button 'Start a Project' (`data-testid=\"header-cta\"`)",
+        "Mobile Toggle: Minimalist 2-line bespoke hamburger icon with expanded high-contrast full-screen navigation overlay"
       ]
     },
+    "homepage_below_hero_revamp": {
+      "user_critique_addressed": "User liked the Hero section somewhat but disliked the rest. Below the hero is completely re-architected into an experiential design magazine spread.",
+      "sections": [
+        {
+          "section_name": "Atelier Statement Strip",
+          "layout": "High-contrast oxblood ribbon (#58130E) with warm brass hairline borders",
+          "content": "Single-row bespoke credentials: 'One Nashik Studio' · 'From Blueprint to Furniture Millwork' · 'Zero Subcontracting Friction' · 'Direct Factory Handover'"
+        },
+        {
+          "section_name": "Curatorial Philosophy & Studio Identity",
+          "layout": "Asymmetric 12-column Swiss editorial grid (Mode A Tetris). Left 5 columns contain large display typography with oxblood drop rule; right 7 columns showcase an oversized inset walnut wood study with floating brass metadata tag.",
+          "interaction": "Micro-hover expands technical details of the Nashik fabrication facility."
+        },
+        {
+          "section_name": "Selected Works Triad (Living, Kitchen, Bedroom)",
+          "layout": "Staggered horizontal architectural dossier. Instead of standard uniform cards: Project 01 spans 8 columns wide with widescreen panoramic view; Project 02 is a tall 4-column portrait card offset vertically by 80px; Project 03 anchors full-width below with integrated specification tags.",
+          "details": "Each project tile features an oxblood hover pill, real representative photography, and a direct link to the Project Detail view."
+        },
+        {
+          "section_name": "Six Facets of Craft (Services Matrix)",
+          "layout": "Bespoke architectural index table: numbers 01 to 06 in large light Cormorant Garamond, titles in semi-bold, with interactive slide-over previews. Clicking any service anchors directly to `/services#slug`."
+        },
+        {
+          "section_name": "The Materials Archive",
+          "layout": "Tactile sensory grid: 6 natural material swatches (Walnut Veneer, Fluted Oak, Veined Limestone, Matte Stone, Aged Brass, Raw Linen) with close-up macro imagery and tactile provenance notes.",
+          "card_style": "1px crisp line border, muted ivory background, subtle scale-up on hover."
+        },
+        {
+          "section_name": "Four-Phase Execution Process",
+          "layout": "Numbered horizontal progression line with deep oxblood markers (01 Discover & Measure → 02 Bespoke 3D Blueprint → 03 Precision Factory Build → 04 Turnkey Handover).",
+          "aesthetic": "Architectural technical drawing aesthetic with hairline grid coordinates."
+        },
+        {
+          "section_name": "Direct Download Invitation Band",
+          "layout": "Full-width Warm Sand & Oxblood container with prominent direct PDF download button (`data-testid=\"home-brochure-download\"`). No email or phone gates required."
+        }
+      ]
+    },
+    "projects_page_revamp": {
+      "route": "/projects",
+      "problem_resolved": "Previously shown as a blank ivory body due to route gate crash. Completely rebuilt with bulletproof static hydration.",
+      "layout": "Editorial Gallery Archive. Top hero introduces 'Selected Work · Nashik Archive' with live project count badge. Category filter bar uses pill-shaped buttons with oxblood fill for the active category.",
+      "grid_system": "Asymmetrical 12-column staggered layout: Hero project (8 cols) paired with portrait vignette (4 cols), followed by a 2-column wide split, creating dynamic visual pacing.",
+      "project_cards": "Include room dimensions, primary finish materials, project category badge in oxblood, and click-through to dedicated project details."
+    },
+    "project_detail_page_revamp": {
+      "route": "/projects/:slug",
+      "layout": "Comprehensive editorial case study. Top widescreen hero header with project metadata (Type, Location: Nashik, Finish Palette, Spatial Scope).",
+      "sections": [
+        "The Architectural Brief & Concept statement",
+        "High-resolution masonry photography showcase with zoom-on-hover",
+        "Material Specifications list with bespoke finish swatches",
+        "Next / Previous Project navigation footer with thumbnail previews"
+      ]
+    },
+    "services_page_revamp": {
+      "route": "/services",
+      "layout": "Architectural Catalog Spread. Rather than repeated identical boxes, each of the 6 services (Modular Kitchens, Living Spaces, Bedroom Interiors, TV & Wall Systems, Custom Furniture, Complete Interiors) receives an alternating bespoke editorial layout.",
+      "service_row": "Even rows feature left imagery (4:3) + right spec dossier (features, layout breakdown, ideal for); Odd rows flip to right imagery with left editorial typography and oxblood bullet points.",
+      "interactive_elements": "In-page anchor navigation bar allowing instant jump to any service section with smooth scroll."
+    },
+    "about_studio_page_revamp": {
+      "route": "/about",
+      "layout": "Atelier Dossier format. Features studio narrative in Nashik, the philosophy of designing and building under one roof, the dedicated carpentry workshop, and quality inspection protocols.",
+      "imagery": "Rich tactile photography of timber joinery, wood veneers, and workshop craftsmanship."
+    },
+    "process_page_revamp": {
+      "route": "/process",
+      "layout": "Step-by-step master plan with timeline guides and deliverable checklists. Explains client onboarding, site measurements in Nashik, 3D visualization, in-house furniture fabrication, and final clean-site delivery."
+    },
+    "gallery_page_revamp": {
+      "route": "/gallery",
+      "layout": "Dense visual moodboard & craftsmanship gallery with instant modal lightbox, category filtering (Kitchen, Living, Bedroom, Joinery, Hardware), and zoom capabilities."
+    },
+    "brochure_page_revamp": {
+      "route": "/brochure",
+      "problem_resolved": "Previously blank white screen in screenshots. Completely resolved.",
+      "download_flow": "DIRECT UNGATED DOWNLOAD: Prominent oxblood CTA button triggers instant PDF download. No forms, no gating, no friction.",
+      "page_content": "Visual preview of the 7-page studio brochure showing page covers, layout spreads, project highlights, and manufacturing standards."
+    },
+    "contact_page_revamp": {
+      "route": "/contact",
+      "layout": "Two-column Atelier Consultation Hub. Left side: Studio address (Shop G2, Pandhari Mala, Ambad-Uttam Nagar Road, Nashik), direct phone (+91 97020 39381), direct WhatsApp button, and stylized sepia Nashik studio location map. Right side: Streamlined enquiry form with instant validation and direct WhatsApp project dispatch."
+    }
+  },
+  "visual_enhancers_and_micro_details": {
+    "textures": "Subtle 4.5% SVG fractal noise overlay on body to eliminate digital flat plastic feel and evoke heavy cotton museum paper.",
+    "border_treatment": "1px hairline solid borders in #DCD5C8 with oxblood (#58130E) highlights on interactive hover.",
     "buttons": {
-      "primary": "bg-[#141210] text-[#F8F6F0] px-7 py-3.5 font-sans text-xs uppercase tracking-[0.2em] hover:bg-[#B38F5F] hover:text-[#141210] transition-colors duration-300",
-      "secondary": "border border-[#141210]/30 text-[#141210] px-7 py-3.5 font-sans text-xs uppercase tracking-[0.2em] hover:border-[#B38F5F] hover:bg-[#F2EFE9] transition-colors duration-300",
-      "gold_accent": "bg-[#B38F5F] text-[#141210] font-medium px-7 py-3.5 text-xs uppercase tracking-[0.2em] hover:bg-[#C5A880] transition-colors duration-300"
-    }
+      "primary": "btn-brand: bg-oxblood text-ivory hover:bg-oxblood-deep uppercase tracking-[0.2em] px-8 py-4 transition duration-300 font-sans text-xs font-semibold shadow-[0_4px_20px_rgba(88,19,14,0.18)]",
+      "secondary": "btn-outline: border border-charcoal/30 text-charcoal hover:border-oxblood hover:bg-oxblood hover:text-ivory px-8 py-4 transition duration-300 font-sans text-xs uppercase tracking-[0.2em]",
+      "ghost_light": "btn-ghost-light: border border-ivory/30 text-ivory hover:border-brass hover:bg-brass hover:text-charcoal px-6 py-3 text-xs uppercase tracking-[0.2em]"
+    },
+    "floating_whatsapp": "Subtle round bronze/oxblood floating WhatsApp widget at bottom right (z-40) with hover tooltip 'Chat with Nashik Studio'."
   },
-  "curated_image_assets": {
-    "hero_and_featured": [
-      {
-        "url": "https://images.unsplash.com/photo-1768144092684-c1a5dd6c7aad?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBpbnRlcmlvciUyMGFyY2hpdGVjdHVyZSUyMHdhcm0lMjB3b29kfGVufDB8fHx8MTc4OTAyNzczNXww&ixlib=rb-4.1.0&q=85",
-        "description": "Bespoke contemporary living lounge with cream curved sofa and warm oak wall paneling",
-        "usage": "Hero or Featured Project 01"
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1760237655540-8197ef24838b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBpbnRlcmlvciUyMGFyY2hpdGVjdHVyZSUyMHdhcm0lMjB3b29kfGVufDB8fHx8MTc4OTAyNzczNXww&ixlib=rb-4.1.0&q=85",
-        "description": "Architectural warm timber geometric ceiling and bespoke fluting",
-        "usage": "Materials, Craftsmanship & Brochure Cover spread"
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1758448755927-e5c5ae14790c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBraXRjaGVuJTIwbWFyYmxlJTIwZGFyayUyMHdvb2R8ZW58MHx8fHwxNzg5MDI3NzM1fDA&ixlib=rb-4.1.0&q=85",
-        "description": "Modular island kitchen with bookmatched marble waterfall and smoked cabinetry",
-        "usage": "Modular Kitchen Service Showcase & Brochure Portfolio"
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1771270731051-9cfbb7222946?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBraXRjaGVuJTIwbWFyYmxlJTIwZGFyayUyMHdvb2R8ZW58MHx8fHwxNzg5MDI3NzM1fDA&ixlib=rb-4.1.0&q=85",
-        "description": "Dark luxury minimalist kitchen with vertical wood cladding and concealed lights",
-        "usage": "Kitchen Specialist Card"
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1693578616322-c8abe6c7393d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwbGl2aW5nJTIwcm9vbSUyMHdvb2R8ZW58MHx8fHwxNzg5MDI3NzM1fDA&ixlib=rb-4.1.0&q=85",
-        "description": "Sculptural living area with circular timber coffee table and low-slung seating",
-        "usage": "Living Spaces and Custom Furniture Showcase"
-      },
-      {
-        "url": "https://images.unsplash.com/photo-1760385737098-0b555a75b2ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBpbnRlcmlvciUyMGFyY2hpdGVjdHVyZSUyMHdhcm0lMjB3b29kfGVufDB8fHx8MTc4OTAyNzczNXww&ixlib=rb-4.1.0&q=85",
-        "description": "Grand timber double entrance doors with gold brass inlays and fluting",
-        "usage": "Architectural Millwork and Joinery Section"
-      }
-    ]
-  },
-  "motion_and_microinteractions": {
-    "smooth_scrolling": "ReactLenis already configured, retain with lerp 0.085",
-    "framer_motion_patterns": {
-      "fade_up": {
-        "initial": { "opacity": 0, "y": 24 },
-        "whileInView": { "opacity": 1, "y": 0 },
-        "viewport": { "once": true, "margin": "-10%" },
-        "transition": { "duration": 0.8, "ease": [0.22, 1, 0.36, 1] }
-      },
-      "image_zoom_hover": "scale(1.04) transition duration-700 ease-out",
-      "editorial_reveal": "Text masked reveal with staggered spans"
-    }
+  "technical_and_animation_protocol": {
+    "zero_blocking_motion": "All page content MUST have initial opacity: 1 in CSS or fast non-blocking enter transitions (max 0.4s). Do not hide pages behind unmounted AnimatePresence gates.",
+    "smooth_scrolling": "Lenis smooth scroll integration preserved and tuned with wheel multiplier 1.0 for luxurious weighted inertia.",
+    "test_ids": "Every key element MUST retain or include role-based data-testid attributes (e.g., `data-testid=\"header-cta\"`, `data-testid=\"brochure-download-btn-bar\"`, `data-testid=\"project-filter-all\"`)."
   },
   "instructions_to_main_agent": [
-    "1. Replace Bodoni Moda in public/index.html and tailwind.config.js with Cormorant Garamond (display) and Plus Jakarta Sans (sans).",
-    "2. Update the wordmark in Header.jsx, Footer.jsx, MobileMenu.jsx to use Cormorant Garamond with tracking-[0.28em] and refined luxury architectural proportions.",
-    "3. Build the new /brochure page (Digital Luxury Brochure with 6 distinct spreads: Cover, Philosophy, Services, Projects, Material Craftsmanship, Studio Contact) plus a print-optimized layout triggered by 'Download Brochure / Print' button.",
-    "4. Add the /brochure route to App.js and include 'Brochure' in nav and mobileNav arrays in site.js.",
-    "5. Implement a sticky mobile bar at the bottom for instant WhatsApp + Phone call + Brochure download with test ids.",
-    "6. Ensure all interactive and key informational elements have rigorous data-testid attributes.",
-    "7. Never use full transparent backgrounds behind sticky nav or dropdowns."
+    "1. Replace or remove fragile full-page route-gate animations in App.js / PageWrap.jsx that led to blank screens on /projects and /brochure.",
+    "2. Globally inject brand primary #58130e into tailwind tokens and apply it across every view: headers, buttons, labels, active tabs, timeline badges, and CTA cards.",
+    "3. Keep the homepage hero section since user liked it, but completely transform everything below the hero using the multi-section magazine layout specified above.",
+    "4. Overhaul all inner pages (/projects, /services, /about, /process, /gallery, /contact, /brochure) so each has a distinctive, high-end editorial identity.",
+    "5. Ensure the PDF brochure download is 100% direct and ungated on click of any DownloadButton component.",
+    "6. Verify all test-id attributes remain intact for end-to-end regression tests."
   ]
 }

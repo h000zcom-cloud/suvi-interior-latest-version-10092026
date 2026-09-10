@@ -6,11 +6,10 @@ import { PageWrap } from "@/components/layout/PageWrap";
 import { Seo } from "@/components/layout/Seo";
 import { PageHero } from "@/components/ui-custom/PageHero";
 import { Reveal, SplitLines } from "@/components/motion/Reveal";
-import { ParallaxImage, Picture } from "@/components/motion/Picture";
+import { Picture } from "@/components/motion/Picture";
 import { CtaBand } from "@/components/ui-custom/CtaBand";
 import { WhatsAppIcon } from "@/components/ui-custom/WhatsAppIcon";
 import { services } from "@/content/services";
-import { img } from "@/content/images";
 import { site } from "@/content/site";
 import { waLink } from "@/lib/contact";
 import { cn } from "@/lib/utils";
@@ -22,26 +21,21 @@ const CRUMBS = [
 
 const ServiceSection = ({ s, index }) => {
   const flip = index % 2 === 1;
-  const portrait = index % 3 === 2;
   return (
     <section id={s.slug} data-testid={`service-section-${s.slug}`} className="scroll-mt-24 border-t border-line">
-      <div className="container-x grid gap-10 py-20 md:py-28 lg:grid-cols-12 lg:gap-8">
-        <div className={cn("lg:col-span-7", flip && "lg:order-2 lg:col-start-6")}>
+      <div className="container-x grid items-start gap-10 py-16 md:py-24 lg:grid-cols-12 lg:gap-12">
+        <div className={cn("lg:col-span-6", flip && "lg:order-2 lg:col-start-7")}>
           <Reveal>
-            <ParallaxImage image={s.image} ratio={portrait ? "4 / 5" : "16 / 11"} sizes="(min-width: 1024px) 58vw, 100vw" strength={6} />
+            <Picture image={s.image} ratio="4 / 5" sizes="(min-width: 1024px) 50vw, 100vw" className="service-photo" />
           </Reveal>
-          {s.secondary && (
-            <Reveal delay={0.15} className={cn("mt-6 hidden w-1/2 lg:block", flip ? "ml-auto" : "")}>
-              <Picture image={s.secondary} ratio="4 / 3" sizes="30vw" />
-            </Reveal>
-          )}
+          <p className="atelier-caption"><span>Suvi / {s.title}</span><span>Representative interior</span></p>
         </div>
 
-        <div className={cn("flex flex-col lg:col-span-4", flip ? "lg:order-1 lg:col-start-1" : "lg:col-start-9")}>
+        <div className={cn("flex flex-col lg:col-span-5", flip ? "lg:order-1 lg:col-start-1" : "lg:col-start-8")}>
           <Reveal>
-            <p className="font-display text-6xl leading-none text-burgundy/80 md:text-7xl">{s.number}</p>
+            <p className="editorial-label text-oxblood">{s.number} / Design &amp; make</p>
           </Reveal>
-          <SplitLines inView as="h2" delay={0.1} lines={s.title.split(" & ").length > 1 ? s.title.split(" & ").map((t, i) => (i === 0 ? `${t} &` : t)) : [s.title]} className="h-section mt-8 text-[clamp(2rem,4.2vw,3.5rem)]" />
+          <SplitLines as="h2" lines={[s.title]} className="editorial-heading mt-7 !text-4xl md:!text-5xl" data-testid={`service-heading-${s.slug}`} />
           <Reveal delay={0.2} className="mt-8">
             <p className="lede">{s.description}</p>
           </Reveal>
@@ -70,7 +64,7 @@ const ServiceSection = ({ s, index }) => {
           </Reveal>
 
           <Reveal delay={0.3} className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line pt-6">
-            <Link to={`/contact?type=${encodeURIComponent(s.projectType)}`} data-testid={`service-cta-${s.slug}`} className="btn-text">
+            <Link to={`/contact?type=${encodeURIComponent(s.projectType)}`} data-testid={`service-cta-${s.slug}`} className="btn-brand">
               Start a Project <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
             </Link>
             {site.whatsapp.enabled && (
@@ -119,16 +113,16 @@ export default function Services() {
   return (
     <PageWrap theme="light" testId="services-page">
       <Seo title="Interior Design & Modular Furniture Services in Nashik" description="Modular kitchens, living spaces, bedroom interiors, TV & wall systems, custom furniture and complete home interiors — designed and manufactured by Suvi Interior in Nashik." path="/services" crumbs={CRUMBS} />
-      <PageHero label="Services" lines={["What we", "design & make"]} image={img.kitchenWoodDark} text="Interior design and furniture manufacturing under one roof — from a single TV unit to a complete home." />
+      <PageHero label="02 / Design & make" lines={["Made for", <em>real living.</em>]} text="From one beautifully resolved piece to a home that works as a whole. Six ways to work with Suvi." />
 
-      <section className="container-x section-sm">
+      <section className="container-x py-10 md:py-14">
         <Reveal>
-          <ol className="grid gap-x-8 gap-y-4 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-3">
+          <ol className="grid gap-x-8 gap-y-5 grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <li key={s.slug}>
-                <Link to={`#${s.slug}`} data-testid={`service-index-${s.slug}`} className="group flex min-h-[44px] items-baseline gap-4 py-2">
-                  <span className="label text-burgundy">{s.number}</span>
-                  <span className="link-underline font-display text-2xl leading-none tracking-[-0.01em] sm:text-3xl">{s.title}</span>
+                <Link to={`#${s.slug}`} data-testid={`service-index-${s.slug}`} className="group block">
+                  <Picture image={s.image} ratio="16 / 8" sizes="(min-width:1024px) 30vw,48vw" className="editorial-image" />
+                  <span className="service-index-link"><span className="flex items-center gap-3"><span className="text-[10px] text-oxblood/60">{s.number}</span>{s.title}</span><ArrowRight className="hidden h-4 w-4 shrink-0 sm:block" /></span>
                 </Link>
               </li>
             ))}
@@ -136,9 +130,9 @@ export default function Services() {
         </Reveal>
       </section>
 
-      {services.map((s, i) => (
+      <div className="service-catalogue">{services.map((s, i) => (
         <ServiceSection key={s.slug} s={s} index={i} />
-      ))}
+      ))}</div>
 
       <CtaBand lines={["Not sure", "where to", "begin?"]} text="Tell us what you have in mind and we'll help you find the right starting point." />
     </PageWrap>

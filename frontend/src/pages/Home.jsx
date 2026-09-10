@@ -5,13 +5,12 @@ import { Strip } from "@/components/home/Strip";
 import { Intro } from "@/components/home/Intro";
 import { SelectedProjects } from "@/components/home/SelectedProjects";
 import { ServicesList } from "@/components/home/ServicesList";
-import { FeaturedProject } from "@/components/home/FeaturedProject";
 import { Process } from "@/components/home/Process";
 import { Materials } from "@/components/home/Materials";
-import { Philosophy } from "@/components/home/Philosophy";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Studio } from "@/components/home/Studio";
 import { CtaBand } from "@/components/ui-custom/CtaBand";
+import { BrochureBand } from "@/components/home/BrochureBand";
 
 export default function Home() {
   return (
@@ -22,10 +21,9 @@ export default function Home() {
       <Intro />
       <SelectedProjects />
       <ServicesList />
-      <FeaturedProject />
       <Process />
       <Materials />
-      <Philosophy />
+      <BrochureBand />
       <Testimonials />
       <Studio />
       <CtaBand />

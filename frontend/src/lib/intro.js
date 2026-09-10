@@ -1,7 +1,12 @@
 const KEY = "suvi-intro-seen";
 
-const seen = typeof window !== "undefined" && window.sessionStorage.getItem(KEY) === "1";
-if (!seen && typeof window !== "undefined") window.sessionStorage.setItem(KEY, "1");
+let seen = true;
+try {
+  seen = window.sessionStorage.getItem(KEY) === "1";
+  window.sessionStorage.setItem(KEY, "1");
+} catch {
+  // Storage restrictions must never prevent the site from rendering.
+}
 
 export const showIntro = !seen;
-export const introDelay = showIntro ? 4.3 : 0.15;
+export const introDelay = 0;

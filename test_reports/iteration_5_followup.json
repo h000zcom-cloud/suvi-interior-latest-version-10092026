@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-10",
+  "parent_report": "/app/test_reports/iteration_5.json",
+  "resolved_findings": [
+    {
+      "finding": "Mobile home service link did not navigate in agent's repeated attempts",
+      "diagnosis": "A subsequent normal click passed with a center-point hit test. Hardened the flow against fixed-bar obstruction with full-width 48px CTA and document/link scroll clearance; no unsupported claim of a React Router failure.",
+      "verification": "Six actual mobile clicks at 390x844: Modular Kitchens three times, Living Spaces, Bedroom Interiors, Custom Furniture; all reached correct /services#slug. Center-point hit tests passed. Targets aligned at 95.5–96.19px below header.",
+      "result": "PASS"
+    },
+    {
+      "finding": "Unavailable remote kitchen photo",
+      "fix": "Bundled verified existing replacement as /images/kitchen-dark.jpg; updated frontend content and brochure source. Re-exported PDF and seven preview images.",
+      "verification": "Local photo decoded at naturalWidth=1440. All main images on /, /services, /projects, /gallery eagerly decoded with no naturalWidth=0 failures.",
+      "result": "PASS"
+    }
+  ],
+  "additional_verification": {
+    "native_pdf_download": "PASS; Suvi-Interior-Brochure.pdf, no browser download failure",
+    "production_build": "PASS; compiled successfully; bundled PDF byte-matched public PDF",
+    "screenshots": "Desktop 1920x800 services preview and mobile 390x844 full-width service CTA reviewed",
+    "document_overflow": false
+  },
+  "remaining_known_issues": [],
+  "has_mocked_apis": false,
+  "user_verification_pending": true
+}

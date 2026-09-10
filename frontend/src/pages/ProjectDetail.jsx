@@ -31,25 +31,25 @@ export default function ProjectDetail() {
     <PageWrap theme="dark" testId="project-detail-page">
       <Seo title={`${project.title} — ${project.type}`} description={project.summary} path={`/projects/${project.slug}`} image={imgUrl(project.hero, 1200)} type="article" crumbs={crumbs} />
 
-      <section className="container-x pt-28 md:pt-40">
+      <section className="bg-oxblood pt-28 pb-12 text-white md:pt-36 md:pb-16"><div className="container-x">
         <Reveal>
-          <Link to="/projects" data-testid="project-back" className="arrow-link text-taupe hover:text-charcoal">
+          <Link to="/projects" data-testid="project-back" className="inline-flex items-center gap-4 text-xs text-white/75 hover:text-white">
             <ArrowLeft className="h-4 w-4" strokeWidth={1.5} /> All projects
           </Link>
         </Reveal>
         <div className="mt-10 grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
-            <SplitLines as="h1" delay={0.1} lines={project.title.split(" ").length > 2 ? [project.title.split(" ").slice(0, -1).join(" "), project.title.split(" ").slice(-1)[0]] : [project.title]} className="h-display text-[clamp(2.5rem,9vw,6.5rem)]" data-testid="project-title" />
+            <SplitLines as="h1" lines={[project.title]} className="editorial-heading" data-testid="project-title" />
           </div>
           <Reveal delay={0.3} className="flex flex-col justify-end lg:col-span-4">
-            <dl className="grid grid-cols-2 gap-y-4 border-t border-line pt-5 text-sm sm:grid-cols-3 lg:grid-cols-2" data-testid="project-meta">
+            <dl className="grid grid-cols-2 gap-y-4 border-t border-white/25 pt-5 text-sm sm:grid-cols-3 lg:grid-cols-2" data-testid="project-meta">
               <div>
-                <dt className="label text-taupe">Category</dt>
+                <dt className="label text-white/60">Category</dt>
                 <dd className="mt-1">{project.type}</dd>
               </div>
               <div>
-                <dt className="label text-taupe">Location</dt>
-                <dd className="mt-1">{project.location}</dd>
+                <dt className="label text-white/60">{project.isPlaceholder ? "Collection" : "Location"}</dt>
+                <dd className="mt-1">{project.isPlaceholder ? "Design study" : project.location}</dd>
               </div>
               {project.year && (
                 <div>
@@ -58,12 +58,12 @@ export default function ProjectDetail() {
                 </div>
               )}
             </dl>
-            <p className="mt-8 lede" data-testid="project-summary">{project.summary}</p>
+            <p className="mt-6 text-sm leading-relaxed text-white/80" data-testid="project-summary">{project.summary}</p>
           </Reveal>
         </div>
-      </section>
+      </div></section>
 
-      <section className="container-x mt-14 md:mt-20">
+      <section className="container-x mt-8 md:mt-12">
         <Reveal>
           <button type="button" onClick={() => setLb(0)} className="img-zoom block w-full text-left" data-testid="project-hero-image" aria-label="Open hero image">
             <ParallaxImage image={project.hero} ratio="16 / 9" priority sizes="100vw" strength={6} />
@@ -72,7 +72,7 @@ export default function ProjectDetail() {
         {project.isPlaceholder && <p className="mt-4 text-xs text-taupe">{site.imageryNotice}</p>}
       </section>
 
-      <section className="container-x grid gap-12 py-20 md:py-28 lg:grid-cols-12">
+      <section className="container-x grid gap-12 py-20 md:py-28 lg:grid-cols-12 text-oxblood">
         <div className="lg:col-span-4">
           <Reveal>
             <p className="label text-taupe">Design Concept</p>

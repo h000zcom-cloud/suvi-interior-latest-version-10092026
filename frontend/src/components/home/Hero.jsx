@@ -39,7 +39,7 @@ export const Hero = () => {
   }, [started, reduce, active]);
 
   const enter = (delay) => ({
-    initial: reduce ? false : { opacity: 0, y: 12 },
+    initial: false,
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.9, ease: EASE, delay: introDelay + delay },
   });
@@ -88,7 +88,7 @@ export const Hero = () => {
           data-testid="hero-heading"
           delay={introDelay}
           lines={["Interiors that", "feel like", <span className="italic text-brass">home.</span>]}
-          className="h-display text-[clamp(3.25rem,min(12vw,13.5svh),8rem)]"
+          className="editorial-heading hero-title"
         />
 
         <div className="mt-8 grid items-end gap-8 lg:mt-10 lg:grid-cols-12">

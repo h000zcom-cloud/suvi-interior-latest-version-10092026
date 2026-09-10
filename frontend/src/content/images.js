@@ -76,7 +76,7 @@ export const img = {
   livingMirror: u("1618219908412-a29a1bb7b86e", "Living room with a round mirror and console"),
   openPlan: u("1600607687939-ce8a6c25118c", "Open-plan living and kitchen with wood joinery"),
 
-  kitchenDark: u("1771270731051-9cfbb7222946", "Dark modular kitchen with wood accents"),
+  kitchenDark: { src: "/images/kitchen-dark.jpg", alt: "Dark kitchen cabinetry with a stone counter and wood accents" },
   kitchenWoodDark: u("1622372738946-62e02505feb3", "Dark kitchen with oak cabinetry and plants"),
   kitchenBlack: u("1564540586988-aa4e53c3d799", "Minimal black kitchen with stone counter"),
   kitchenWhite: u("1600585152220-90363fe7e115", "White kitchen with oak details"),

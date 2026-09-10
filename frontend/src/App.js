@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
 import { ReactLenis } from "lenis/react";
 import "@/App.css";
+import "@/atelier.css";
 import { HeaderThemeProvider } from "@/components/layout/HeaderTheme";
 import { Preloader } from "@/components/layout/Preloader";
 import { Header } from "@/components/layout/Header";
@@ -30,14 +30,13 @@ function Shell() {
 
   return (
     <HeaderThemeProvider>
-      <a href="#main" className="skip-link">
+      <a href="#main" className="skip-link" data-testid="skip-to-content">
         Skip to content
       </a>
       <Preloader />
       <Header menuOpen={menuOpen} onToggle={() => setMenuOpen((o) => !o)} />
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <AnimatePresence mode="wait" initial={false}>
-        <Routes location={location} key={location.pathname}>
+        <Routes key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
@@ -51,7 +50,6 @@ function Shell() {
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </AnimatePresence>
       <Footer />
       <WhatsAppFloat hidden={menuOpen} />
     </HeaderThemeProvider>
