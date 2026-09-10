@@ -39,6 +39,14 @@ Premium editorial design; mobile-first; restrained motion + reduced-motion suppo
 - Brochure lead capture (`components/brochure/LeadGate.jsx`): every Download PDF button opens a modal (name + WhatsApp number) → POST /api/enquiries (project_type Other, requirement "Brochure download", source_page /brochure) → PDF opens, success state, localStorage `suvi-brochure-lead` unlocks direct links thereafter.
 - Testing agent iteration 3: 100% pass (backend 15/15; preloader, slideshow, brand colours, loops, gate flow, admin listing, mobile, regression).
 
+## Implemented (2026-06 — session 4: header, longer preloader, home polish, brochure brand)
+- Header redesigned: 3-column (wordmark · centred nav with oxblood/brass diamond active marker · serif phone + oxblood "Start a Project"), glass + soft shadow on scroll, descriptor removed.
+- Preloader lengthened to ~4.3s (HOLD 3300ms) with more motion: frame lines draw in, slow orbiting brass dot on a faint ring, cycling italic words (Design / Craft / Detail / Home), counter, shimmer loop, oxblood wipe exit. `introDelay` 4.3s.
+- Home polish: Intro (scroll-driven oxblood vertical rule, 3 pillars Design/Make/Install with animated oxblood rules, clip-path image reveal), ServicesList (oxblood diamond `layoutId` indicator, animated 01/06 progress rule, animated title swap, oxblood top band), Materials (rebalanced 2-row asymmetric grid, clip-path reveals, numbered captions, ivory-2 bg).
+- Brochure PDF: oxblood cover spread with inset image panel, oxblood process page, brand-coloured numerals/rules throughout.
+- LeadGate error state now shows server validation detail or a WhatsApp fallback link (user saw a generic failure on the deployed domain; deployed API verified healthy via curl — likely transient).
+- Self-tested via screenshots (desktop + mobile), gate flow PASS, PDF regenerated. Testing agent not run this session (user asked to conserve credits).
+
 ## Backlog / next tasks
 - **P0**: Replace representative imagery with real Suvi Interior project photos (`content/images.js`, `projects.js`, `gallery.js`); confirm service copy; add real project names/years.
 - **P1**: Regenerate brochure PDF automatically when content changes (currently cached per process; restart backend to refresh). Email/WhatsApp notification on new enquiry (needs receiving email — Resend); founder/team story; verified Google rating + Business link (`site.googleReviews`); business hours; email + social links; update sitemap/robots domain on launch.

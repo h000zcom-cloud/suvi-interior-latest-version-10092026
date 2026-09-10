@@ -3,6 +3,7 @@ import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Download, X } from "lucide-react";
 import { EASE } from "@/lib/motion";
+import { waLink } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -53,6 +54,7 @@ const LeadGate = ({ open, onClose, onUnlock }) => {
   const [form, setForm] = useState({ name: "", phone: "" });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle");
+  const [serverError, setServerError] = useState("");
 
   useEffect(() => {
     if (!open) return;
@@ -87,7 +89,9 @@ const LeadGate = ({ open, onClose, onUnlock }) => {
       onUnlock();
       setStatus("success");
       window.open(PDF_URL, "_blank", "noopener");
-    } catch {
+    } catch (err) {
+      const detail = err?.response?.data?.detail;
+      setServerError(Array.isArray(detail) ? detail.map((d) => d.msg?.replace("Value error, ", "")).join(" ") : "");
       setStatus("error");
     }
   };
@@ -167,7 +171,13 @@ const LeadGate = ({ open, onClose, onUnlock }) => {
                 </div>
                 {status === "error" && (
                   <p className="mt-4 text-sm text-oxblood" role="alert" data-testid="gate-error">
-                    Something went wrong. Please try again or WhatsApp us directly.
+                    {serverError || "We couldn't reach the studio server just now. Please try again, or "}
+                    {!serverError && (
+                      <a href={waLink("Hi Suvi Interior, I'd like a copy of your brochure.")} target="_blank" rel="noopener noreferrer" className="link-underline is-active" data-testid="gate-whatsapp-fallback">
+                        message us on WhatsApp
+                      </a>
+                    )}
+                    {!serverError && "."}
                   </p>
                 )}
               </form>

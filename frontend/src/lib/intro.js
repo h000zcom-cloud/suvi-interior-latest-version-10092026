@@ -4,4 +4,4 @@ const seen = typeof window !== "undefined" && window.sessionStorage.getItem(KEY)
 if (!seen && typeof window !== "undefined") window.sessionStorage.setItem(KEY, "1");
 
 export const showIntro = !seen;
-export const introDelay = showIntro ? 2.75 : 0.15;
+export const introDelay = showIntro ? 4.3 : 0.15;

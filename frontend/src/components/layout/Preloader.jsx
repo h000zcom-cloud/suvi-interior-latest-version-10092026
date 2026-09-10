@@ -4,8 +4,9 @@ import { showIntro } from "@/lib/intro";
 import { EASE } from "@/lib/motion";
 
 const WORDS = ["Suvi", "Interior"];
-const HOLD = 2150;
-const OUT = 2150 + 520;
+const HOLD = 3300;
+const OUT = 3300 + 560;
+const WORDS_CYCLE = ["Design", "Craft", "Detail", "Home"];
 
 const Letters = ({ phase }) => {
   let idx = 0;
@@ -47,6 +48,13 @@ export const Preloader = () => {
   const [visible, setVisible] = useState(showIntro);
   const [phase, setPhase] = useState("in");
   const [count, setCount] = useState(0);
+  const [word, setWord] = useState(0);
+
+  useEffect(() => {
+    if (!visible) return;
+    const id = setInterval(() => setWord((w) => (w + 1) % WORDS_CYCLE.length), 780);
+    return () => clearInterval(id);
+  }, [visible]);
 
   useEffect(() => {
     if (!visible) return;
@@ -80,7 +88,21 @@ export const Preloader = () => {
         >
           <motion.div className="pointer-events-none absolute inset-0 bg-oxblood" initial={{ y: "100%" }} animate={{ y: "100%" }} exit={{ y: "0%" }} transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }} />
 
-          <div className="frame-inset" />
+          <motion.span className="absolute left-4 right-4 top-4 h-px origin-left bg-ivory/15 sm:left-6 sm:right-6 sm:top-6 lg:left-8 lg:right-8 lg:top-8" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.4, ease: EASE, delay: 0.2 }} />
+          <motion.span className="absolute bottom-4 left-4 right-4 h-px origin-right bg-ivory/15 sm:bottom-6 sm:left-6 sm:right-6 lg:bottom-8 lg:left-8 lg:right-8" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.4, ease: EASE, delay: 0.2 }} />
+          <motion.span className="absolute bottom-4 left-4 top-4 w-px origin-bottom bg-ivory/15 sm:bottom-6 sm:left-6 sm:top-6 lg:bottom-8 lg:left-8 lg:top-8" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.4, ease: EASE, delay: 0.5 }} />
+          <motion.span className="absolute bottom-4 right-4 top-4 w-px origin-top bg-ivory/15 sm:bottom-6 sm:right-6 sm:top-6 lg:bottom-8 lg:right-8 lg:top-8" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.4, ease: EASE, delay: 0.5 }} />
+
+          <motion.div
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[min(78vw,34rem)] w-[min(78vw,34rem)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ivory/[0.07]"
+            initial={{ opacity: 0, scale: 0.86 }}
+            animate={{ opacity: phase === "out" ? 0 : 1, scale: 1 }}
+            transition={{ duration: 1.6, ease: EASE, delay: 0.3 }}
+          >
+            <motion.span className="absolute inset-0" animate={{ rotate: 360 }} transition={{ duration: 9, ease: "linear", repeat: Infinity }}>
+              <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-brass" />
+            </motion.span>
+          </motion.div>
 
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: phase === "out" ? 0 : 1 }} transition={{ duration: 0.8, delay: phase === "out" ? 0 : 0.6 }} className="label absolute left-8 top-8 text-ivory/50 sm:left-12 sm:top-12">
             Interior Design &amp; Furniture
@@ -109,6 +131,13 @@ export const Preloader = () => {
 
             <div className="mt-8 h-px w-[min(60vw,22rem)] overflow-hidden bg-ivory/10">
               <motion.span className="block h-full origin-left bg-brass" initial={{ scaleX: 0 }} animate={{ scaleX: phase === "out" ? 1 : count / 100 }} transition={{ duration: 0.25, ease: "linear" }} />
+            </div>
+            <div className="mt-6 h-6 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.p key={word} initial={{ y: "110%", opacity: 0 }} animate={{ y: phase === "out" ? "-110%" : "0%", opacity: phase === "out" ? 0 : 1 }} exit={{ y: "-110%", opacity: 0 }} transition={{ duration: 0.5, ease: EASE }} className="font-display text-xl font-light italic tracking-wide text-ivory/70">
+                  {WORDS_CYCLE[word]}
+                </motion.p>
+              </AnimatePresence>
             </div>
           </div>
 

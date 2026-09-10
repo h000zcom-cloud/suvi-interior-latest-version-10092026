@@ -32,7 +32,9 @@ IVORY_2 = HexColor("#EDE8DF")
 CHARCOAL = HexColor("#141210")
 TAUPE = HexColor("#766C63")
 BRASS = HexColor("#C5A880")
-BRONZE = HexColor("#8A6A42")
+BRONZE = HexColor("#58130E")
+OXBLOOD = HexColor("#58130E")
+OXBLOOD_LIGHT = HexColor("#7A2A22")
 LINE = HexColor("#DCD5C8")
 NIGHT_LINE = HexColor("#2B2622")
 
@@ -144,51 +146,51 @@ def wordmark(c, x, y, color=CHARCOAL, size=11):
 
 def page_frame(c, page_no, dark=False):
     fg = IVORY if dark else CHARCOAL
-    muted = HexColor("#9B948A") if dark else TAUPE
+    muted = HexColor("#D9BFB9") if dark else TAUPE
     wordmark(c, M, H - M + 6, fg, 9)
     label_right(c, CONTENT["site"]["descriptor"], W - M, H - M + 8, muted, 6.4)
-    rule(c, M, M - 10, W - M, NIGHT_LINE if dark else LINE)
+    rule(c, M, M - 10, W - M, HexColor("#7A2A22") if dark else LINE)
     label(c, f"{CONTENT['site']['city']} · {CONTENT['site']['region']}", M, M - 22, muted, 6.4)
     label_right(c, f"{page_no:02d}", W - M, M - 22, muted, 6.4)
 
 
 def cover(c):
     site = CONTENT["site"]
-    c.setFillColor(CHARCOAL)
+    c.setFillColor(OXBLOOD)
     c.rect(0, 0, W, H, fill=1, stroke=0)
-    draw_cover_image(c, CONTENT["images"]["cover"], 0, 0, W, H)
-    c.setFillColor(CHARCOAL)
-    c.setFillAlpha(0.42)
-    c.rect(0, 0, W, H, fill=1, stroke=0)
-    c.setFillAlpha(0.55)
-    c.rect(0, 0, W, H * 0.5, fill=1, stroke=0)
+
+    px, py, pw, ph = M, H * 0.36, W - 2 * M, H * 0.64 - M - 26
+    draw_cover_image(c, CONTENT["images"]["cover"], px, py, pw, ph)
+    c.setFillColor(OXBLOOD)
+    c.setFillAlpha(0.18)
+    c.rect(px, py, pw, ph, fill=1, stroke=0)
     c.setFillAlpha(1)
 
-    c.setStrokeColor(HexColor("#F8F6F0"))
-    c.setStrokeAlpha(0.28)
+    c.setStrokeColor(IVORY)
+    c.setStrokeAlpha(0.35)
     c.setLineWidth(0.5)
-    c.rect(M * 0.6, M * 0.6, W - M * 1.2, H - M * 1.2, fill=0, stroke=1)
+    c.rect(M * 0.55, M * 0.55, W - M * 1.1, H - M * 1.1, fill=0, stroke=1)
     c.setStrokeAlpha(1)
 
-    wordmark(c, M, H - M - 14, IVORY, 14)
-    label_right(c, f"Studio Brochure · {datetime.now(timezone.utc).year}", W - M, H - M - 12, HexColor("#D8D2C6"), 6.8)
+    wordmark(c, M, H - M - 8, IVORY, 14)
+    label_right(c, f"Studio Brochure · {datetime.now(timezone.utc).year}", W - M, H - M - 6, HexColor("#E9D9D5"), 6.8)
 
+    ty = py - 34
     c.setFillColor(BRASS)
-    c.rect(M, H * 0.42 + 6, 28, 0.6, fill=1, stroke=0)
-    label(c, f"{site['city']} · {site['region']}", M + 38, H * 0.42 + 4, HexColor("#E6E0D4"), 7)
+    c.rect(M, ty + 2, 28, 0.6, fill=1, stroke=0)
+    label(c, f"{site['city']} · {site['region']}", M + 38, ty, HexColor("#E9D9D5"), 7)
 
     c.setFillColor(IVORY)
-    c.setFont("Display-Light", 54)
-    c.drawString(M - 2, H * 0.42 - 56, "Interiors that")
-    c.drawString(M - 2, H * 0.42 - 112, "feel like")
-    c.setFont("Display-Italic", 54)
-    c.drawString(M - 2, H * 0.42 - 168, "home.")
+    c.setFont("Display-Light", 50)
+    c.drawString(M - 2, ty - 58, "Interiors that feel like")
+    c.setFont("Display-Italic", 50)
+    c.drawString(M - 2, ty - 110, "home.")
 
-    para(c, site["positioning"], M, H * 0.42 - 196, 250, style("Sans-Light", 8.6, HexColor("#E6E0D4"), 13.5))
+    para(c, site["positioning"], M, ty - 130, 270, style("Sans-Light", 8.4, HexColor("#E9D9D5"), 13.2))
 
-    rule(c, M, M + 44, W - M, HexColor("#F8F6F0"), 0.4)
-    label(c, site["descriptor"], M, M + 30, HexColor("#D8D2C6"), 6.6)
-    label_right(c, site["phone"], W - M, M + 30, BRASS, 7.2)
+    rule(c, M, M + 40, W - M, IVORY, 0.4)
+    label(c, site["descriptor"], M, M + 26, HexColor("#E9D9D5"), 6.6)
+    label_right(c, site["phone"], W - M, M + 26, BRASS, 7.2)
     c.showPage()
 
 
@@ -284,12 +286,12 @@ def services_page(c, n, items, index_label, heading):
 
 
 def process_page(c, n):
-    c.setFillColor(CHARCOAL)
+    c.setFillColor(OXBLOOD)
     c.rect(0, 0, W, H, fill=1, stroke=0)
     page_frame(c, n, dark=True)
     top = H - M - 54
     label(c, "04", M, top, BRASS)
-    label(c, "Process", M + 20, top, HexColor("#9B948A"))
+    label(c, "Process", M + 20, top, HexColor("#D9BFB9"))
     c.setFillColor(IVORY)
     c.setFont("Display-Light", 40)
     c.drawString(M - 1, top - 50, "From first conversation")
@@ -298,25 +300,25 @@ def process_page(c, n):
     c.setFont("Display-Italic", 40)
     c.drawString(M - 1 + tw, top - 92, "home.")
 
-    para(c, CONTENT["process_intro"], M, top - 124, 300, style("Sans-Light", 8.8, HexColor("#BDB6AB"), 14))
+    para(c, CONTENT["process_intro"], M, top - 124, 300, style("Sans-Light", 8.8, HexColor("#E9D9D5"), 14))
 
     steps = CONTENT["process"]
     gy = top - 190
     col_w = (W - 2 * M - 4 * 14) / 5
     for i, s in enumerate(steps):
         x = M + i * (col_w + 14)
-        rule(c, x, gy, x + col_w, BRASS if i == len(steps) - 1 else NIGHT_LINE, 0.6)
-        label(c, s["n"], x, gy - 16, BRASS if i == len(steps) - 1 else HexColor("#9B948A"), 6.6)
+        rule(c, x, gy, x + col_w, BRASS if i == len(steps) - 1 else HexColor("#7A2A22"), 0.6)
+        label(c, s["n"], x, gy - 16, BRASS if i == len(steps) - 1 else HexColor("#D9BFB9"), 6.6)
         c.setFillColor(IVORY)
         c.setFont("Display", 19)
         c.drawString(x, gy - 50, s["title"])
-        para(c, s["text"], x, gy - 62, col_w, style("Sans-Light", 7.4, HexColor("#BDB6AB"), 11.2))
+        para(c, s["text"], x, gy - 62, col_w, style("Sans-Light", 7.4, HexColor("#E9D9D5"), 11.2))
 
     iy = M + 8
     ih = gy - 150 - iy
     draw_cover_image(c, CONTENT["images"]["process"], M, iy, W - 2 * M, ih)
-    c.setFillColor(CHARCOAL)
-    c.setFillAlpha(0.35)
+    c.setFillColor(OXBLOOD)
+    c.setFillAlpha(0.3)
     c.rect(M, iy, W - 2 * M, ih, fill=1, stroke=0)
     c.setFillAlpha(1)
     c.setFillColor(IVORY)
