@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export const Process = ({ index = "05", id = "process" }) => (
   <section id={id} data-testid="process-section" className="scroll-mt-24 border-t border-line">
     <div className="container-x section">
-      <SectionHead index={index} label="Process" title={<>From first <span className="italic normal-case">conversation</span> to a finished home</>} titleClassName="max-w-3xl" />
+      <SectionHead index={index} label="Process" title={<>From first conversation to a <span className="italic">finished home.</span></>} titleClassName="max-w-3xl" />
 
       <ol className="mt-14 grid gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-5 lg:gap-x-8">
         {processSteps.map((s, i) => (

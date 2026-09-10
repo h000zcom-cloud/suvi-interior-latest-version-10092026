@@ -1,126 +1,155 @@
 {
-  "brand": {
-    "name": "Suvi Interior",
-    "location": "Shop No. G2, Pandhari Mala, 273, Shree Kulswamini Business Centre, 10, Ambad-Uttam Nagar Road, Opp. Rajat Park, Nashik 422010",
-    "phone": "+91 97020 39381",
-    "services": [
-      "Modular Kitchens",
-      "Living Spaces",
-      "Bedroom Interiors",
-      "TV Units & Wall Systems",
-      "Custom Furniture",
-      "Complete Interior Solutions"
-    ],
-    "ethos": "A premium interior and furniture studio creating thoughtfully designed spaces with precision, functionality and timeless aesthetics."
-  },
-  "typography": {
-    "primary_heading": "Cormorant Garamond",
-    "secondary_body": "Manrope",
-    "weights": {
-      "headings": "font-light to font-medium (300-500)",
-      "body": "font-light to font-normal (300-400)",
-      "labels": "font-medium tracking-[0.2em] uppercase"
-    },
-    "hierarchy": {
-      "h1_hero": "text-5xl sm:text-6xl lg:text-7xl tracking-tighter leading-[0.9]",
-      "h2_section": "text-4xl sm:text-5xl tracking-tight leading-none",
-      "h3_card": "text-2xl sm:text-3xl leading-snug",
-      "body": "text-base lg:text-lg leading-relaxed",
-      "label": "text-xs sm:text-sm uppercase tracking-[0.2em]"
-    },
-    "instructions_to_main_agent": "Never use Inter or Roboto for headings. Stacked headings like 'CRAFTED / FOR / MODERN LIVING' should use <br/> tags and have very tight line-height. Import Google Fonts for Cormorant Garamond and Manrope in index.css. Use them explicitly via Tailwind classes or base styles."
-  },
-  "colors": {
-    "background": {
-      "primary": "#F7F5F0",
-      "secondary": "#EFECE6",
-      "dark": "#181614"
-    },
-    "text": {
-      "primary": "#1A1A1A",
-      "secondary": "#8C857B",
-      "light": "#F7F5F0",
-      "accent": "#4A3728"
-    },
-    "borders": {
-      "light": "#E2DFD8",
-      "dark": "#2A2622"
-    },
-    "instructions_to_main_agent": "Configure these exact hex codes in tailwind.config.js. Avoid standard bright Tailwind colors. Ensure high contrast ratio. Do not use generic full-screen gradients."
-  },
-  "spacing_and_layout": {
-    "padding": "Generous. Standard section padding: py-24 md:py-32.",
-    "borders": "Thin, 1px solid borders for separators. Avoid border-radius where possible; use rounded-none or max rounded-sm for subtle edges.",
-    "shadows": "DO NOT USE typical drop shadows. Rely on thin borders and negative space.",
-    "grid_system": "Bento Tetris or asymmetrical editorial grids. Never fill 100% of the grid perfectly.",
-    "instructions_to_main_agent": "Avoid putting sections inside standard cards. Let elements sit directly on the background. Use thin 1px horizontal lines to separate services. Ensure container optical alignment."
-  },
-  "motion_and_interactions": {
-    "scrolling": "Lenis smooth scrolling is MANDATORY. Use @studio-freight/react-lenis.",
-    "hero_reveal": "Masked line-by-line reveal for H1 using framer-motion (overflow-hidden wrapper, translateY 100% to 0).",
-    "scroll_reveals": "Use framer-motion 'whileInView' for subtle y-axis translates.",
-    "parallax": "Subtle image parallax using useScroll and useTransform for hero/project images.",
-    "hover_states": "Images scale subtly on hover (scale-105 with duration-700 ease-out). Services list triggers image swap on hover.",
-    "marquee": "One very slow editorial marquee using react-fast-marquee.",
-    "accessibility": "Always respect prefers-reduced-motion."
-  },
-  "components": {
-    "header": "Transparent header initially, transitioning to solid slightly blurred bg (#F7F5F0/90 backdrop-blur-md) on scroll. Left aligned wordmark, right aligned 'Start a Project'. Fullscreen elegant mobile menu overlay.",
-    "buttons": "Minimal rectangular buttons. e.g. border border-primary px-6 py-3 uppercase tracking-widest text-xs hover:bg-primary hover:text-light transition-colors.",
-    "services_list": "Editorial rows with large typography, separated by thin borders.",
-    "footer": "Giant typography 'SUVI / INTERIOR'. Dark background (#181614). Thin borders for link separation.",
-    "projects_gallery": "Masonry or asymmetrical grid. Image + text below. Use a lightbox.",
-    "instructions_to_main_agent": "For React components, write .js or .jsx extensions. Do not use generic Shadcn cards for main layout blocks. DO NOT use complete transparent background in header if it overlaps content."
-  },
-  "image_urls": [
-    {
-      "url": "https://images.unsplash.com/photo-1564078516393-cf04bd966897?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB3YXJtJTIwbGl2aW5nJTIwcm9vbSUyMGludGVyaW9yJTIwbW9kZXJuJTIwd29vZHxlbnwwfHx8fDE3ODgzNzk5MTJ8MA&ixlib=rb-4.1.0&q=85",
-      "category": "hero",
-      "description": "Elegant gray padded chaise couch beside window, warm modern living room."
-    },
-    {
-      "url": "https://images.unsplash.com/photo-1771270731051-9cfbb7222946?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwyfHxwcmVtaXVtJTIwbW9kdWxhciUyMGtpdGNoZW4lMjBtb2Rlcm4lMjBtaW5pbWFsaXN0JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzg4Mzc5OTEyfDA&ixlib=rb-4.1.0&q=85",
-      "category": "services",
-      "description": "Modern dark modular kitchen with wood accents."
-    },
-    {
-      "url": "https://images.unsplash.com/photo-1710224002849-a76ea1068b0d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBiZWRyb29tJTIwaW50ZXJpb3IlMjB3YXJtJTIwbGlnaHQlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzg4Mzc5OTEyfDA&ixlib=rb-4.1.0&q=85",
-      "category": "projects",
-      "description": "Luxury bedroom interior, warm light, modern bed."
-    },
-    {
-      "url": "https://images.unsplash.com/photo-1724918108497-160360dbedfe?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHw0fHx3b29kJTIwam9pbmVyeSUyMGNyYWZ0c21hbnNoaXAlMjBkZXRhaWwlMjB0ZXh0dXJlfGVufDB8fHx8MTc4ODM3OTkxMnww&ixlib=rb-4.1.0&q=85",
-      "category": "craftsmanship",
-      "description": "Close up of wood joinery detail and texture."
-    },
-    {
-      "url": "https://images.unsplash.com/photo-1663811397219-c572550dffc5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjB0diUyMHVuaXQlMjBsaXZpbmclMjByb29tJTIwYXJjaGl0ZWN0dXJlfGVufDB8fHx8MTc4ODM3OTkxMnww&ixlib=rb-4.1.0&q=85",
-      "category": "gallery",
-      "description": "Modern TV unit and living room architecture."
-    }
-  ],
-  "page_blueprints": {
-    "homepage": [
-      "Hero: Fullscreen cinematic with 'INTERIORS / THAT FEEL / LIKE HOME' masked line reveal.",
-      "Editorial Intro: 'SUVI INTERIOR / NASHIK' label, large text 'DESIGNED AROUND THE WAY YOU LIVE'.",
-      "Services: Typography-led list with horizontal separators. Image swaps on hover.",
-      "Featured Projects: Asymmetrical grid (1 large + 2 smaller).",
-      "Philosophy & Manifesto: 3 numbered chapters.",
-      "Process: 5 steps (Discover, Design, Craft, Install, Deliver).",
-      "Craftsmanship: Full-width close-up wood image with minimal text overlay.",
-      "Testimonials: Typography focused, no typical cards.",
-      "Final CTA: Dark background, full width. 'LET'S CREATE A SPACE THAT FEELS LIKE YOURS.'"
+  "project_name": "Suvi Interior — Ultra Luxury Interior & Architectural Studio",
+  "archetype": "ARCHETYPE 5: LUXURY (High-End Interior Architecture & Craftsmanship)",
+  "context": "Marketing Site / Luxury Atelier & Portfolio + Interactive Digital & Print Brochure",
+  "problem_analysis": {
+    "user_feedback": "User disliked Bodoni Moda on top (wordmark feels fragile/dated with generic wide tracking). Demands a far more luxurious, top 1% design benchmark, high-end editorial rhythm, phone-specific responsiveness, and a dedicated company brochure (/brochure) with print-to-PDF / A4 elegance.",
+    "emotional_goal": "Tactile quiet luxury, architectural gravitas, warmth of raw timber and milled stone, uncompromising craftsmanship, bespoke confidence.",
+    "anti_ai_rules_enforced": [
+      "No Bodoni Moda, No Inter, No Roboto for headings",
+      "No center-everything disease: embrace asymmetric architectural margins and offsets",
+      "No generic 100% full-screen gradients; use tactile grain, crisp hairline borders, and museum-grade typography",
+      "No transparent dropdowns or ungrounded headers: glassmorphism with crisp 1px borders and saturate boost",
+      "Dedicated mobile floating contact bar and full-screen tactile drawer menu"
     ]
   },
-  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
-    "You tend to converge toward generic outputs. Avoid this: make creative, distinctive frontends that surprise and delight.",
-    "Do not use dark colors as gradients. Stick to solid architectural tones.",
-    "Create depth through layered design elements with z-index hierarchy, but DO NOT rely on box shadows.",
-    "DO NOT apply universal transitions (e.g., transition: all). Add transitions to specific properties to avoid breaking Framer Motion transforms.",
-    "DO NOT center align the app container. Respect the natural reading flow.",
-    "All interactive and key informational elements MUST include a `data-testid` attribute (kebab-case, role-based).",
-    "Ensure `tailwind.config.js` is updated with the custom fonts and color palette.",
-    "DO NOT use generic placeholder text. Use the actual brand info provided.",
-    "Use .js/.jsx files as requested by the environment constraints."
+  "typography": {
+    "pairing_concept": "The Architectural Atelier — Cormorant Garamond / Cabinet Grotesk / Plus Jakarta Sans",
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Cinzel:wght@400;500;600;700&display=swap",
+    "wordmark_treatment": {
+      "font_family": "Cormorant Garamond (or Cinzel for crisp Roman stone-carved alternative)",
+      "recommended_primary": "Cormorant Garamond",
+      "style": "font-serif text-[17px] sm:text-[19px] tracking-[0.28em] uppercase font-light text-charcoal",
+      "wordmark_structure": "SUVI INTERIOR — crafted with a thin golden dot or subtle vertical hairline divider between studio and city: 'SUVI INTERIOR' with sub-caption 'ATELIER & CRAFT • NASHIK'",
+      "rationale": "Cormorant Garamond possesses graceful proportions, bespoke high-contrast strokes and architectural warmth, solving the harshness and clunky feel of Bodoni Moda."
+    },
+    "font_families": {
+      "display": "\"Cormorant Garamond\", Georgia, serif",
+      "body": "\"Plus Jakarta Sans\", system-ui, -apple-system, sans-serif",
+      "accent": "\"Cinzel\", \"Cormorant Garamond\", serif"
+    },
+    "scale": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-serif font-light leading-[1.05] tracking-tight",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-normal leading-[1.12] tracking-tight",
+      "h3_sub": "text-xl sm:text-2xl font-serif font-normal leading-snug",
+      "h4_card": "text-lg sm:text-xl font-medium tracking-normal",
+      "body": "text-base sm:text-[15px] leading-relaxed font-light",
+      "caption_label": "text-[11px] uppercase tracking-[0.22em] font-medium"
+    }
+  },
+  "colors": {
+    "palette_name": "Venetian Alabaster, Smoked Walnut & Aged Brass",
+    "swatches": {
+      "ivory_bg": "#F8F6F0",
+      "ivory_surface": "#F2EFE9",
+      "ivory_elevated": "#EAE5DC",
+      "charcoal_deep": "#141210",
+      "charcoal_subtle": "#25211D",
+      "smoked_walnut": "#4A3B32",
+      "warm_taupe": "#766C63",
+      "aged_brass": "#C5A880",
+      "brass_gold": "#B38F5F",
+      "terracotta_accent": "#8A4D3B",
+      "border_hairline": "rgba(37, 33, 29, 0.12)",
+      "border_light": "rgba(248, 246, 240, 0.15)"
+    },
+    "contrast_compliance": {
+      "charcoal_on_ivory": "14.2:1 (AAA Pass)",
+      "aged_brass_on_charcoal": "6.8:1 (AA+ Pass)",
+      "taupe_on_ivory": "4.8:1 (AA Pass)"
+    }
+  },
+  "component_guidelines": {
+    "header": {
+      "style": "Sticky/fixed nav with solid or crystal glass backdrop (bg-[#F8F6F0]/85 backdrop-blur-xl border-b border-[rgba(37,33,29,0.08)]). Never transparent over dark areas without explicit scrim. Left: Wordmark 'SUVI INTERIOR' with tracking-[0.28em] in Cormorant Garamond. Center: Minimalist links ('Projects', 'Services', 'Studio', 'Brochure', 'Process'). Right: 'Download Brochure' or 'Consult Studio' button.",
+      "data_test_id": "site-header"
+    },
+    "hero": {
+      "style": "Architectural split or full-bleed editorial canvas with warm wood/marble photography overlay max bg-black/40 (never darker). Large statement H1 'Crafting Quiet Magnificence for Living.' Subtitle with generous line-height. Direct CTA: 'Explore Portfolio' + 'View 2026 Studio Brochure'.",
+      "overlay_opacity": "bg-black/35 to bg-black/45"
+    },
+    "brochure_page": {
+      "route": "/brochure",
+      "concept": "A dual-mode luxury editorial publication: interactive digital magazine on web with flip/spread preview, plus high-res print stylesheet for A4 luxury brochure export/download.",
+      "sections": [
+        "Brochure Cover Spread (Gold deboss aesthetic, Nashik Atelier, Established 2018)",
+        "Curator's Letter & Design Philosophy by Suvi Interior",
+        "Atelier Capabilities (Modular Kitchens, Italian Wardrobes, TV Architecture, Custom Solid Timber)",
+        "Flagship Projects Showcase with Blueprint Sketches and Material Spec Sheets",
+        "Materials & Craftsmanship Library (Veneer, Quartz, Brass hardware, Soft-close Blum mechanisms)",
+        "Studio Location Map & Direct Consultation VIP Booking",
+        "Floating / Top Action: 'Download Studio Brochure (PDF)' triggering window.print() with custom @media print CSS"
+      ],
+      "print_styles": "Included in print stylesheet: page-break-after: always, hides header/footer/chat-floats, renders gorgeous full-page A4 editorial booklet layout."
+    },
+    "sticky_mobile_bar": {
+      "style": "Fixed bottom-0 inset-x-0 z-40 bg-[#141210]/95 backdrop-blur-lg border-t border-[#C5A880]/20 px-4 py-3 flex items-center justify-between gap-3 md:hidden",
+      "actions": [
+        "Direct Call: +91 97020 39381 (data-testid='mobile-bar-call')",
+        "WhatsApp Direct: Chat with Studio (data-testid='mobile-bar-whatsapp')",
+        "Brochure View: Quick PDF link (data-testid='mobile-bar-brochure')"
+      ]
+    },
+    "buttons": {
+      "primary": "bg-[#141210] text-[#F8F6F0] px-7 py-3.5 font-sans text-xs uppercase tracking-[0.2em] hover:bg-[#B38F5F] hover:text-[#141210] transition-colors duration-300",
+      "secondary": "border border-[#141210]/30 text-[#141210] px-7 py-3.5 font-sans text-xs uppercase tracking-[0.2em] hover:border-[#B38F5F] hover:bg-[#F2EFE9] transition-colors duration-300",
+      "gold_accent": "bg-[#B38F5F] text-[#141210] font-medium px-7 py-3.5 text-xs uppercase tracking-[0.2em] hover:bg-[#C5A880] transition-colors duration-300"
+    }
+  },
+  "curated_image_assets": {
+    "hero_and_featured": [
+      {
+        "url": "https://images.unsplash.com/photo-1768144092684-c1a5dd6c7aad?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBpbnRlcmlvciUyMGFyY2hpdGVjdHVyZSUyMHdhcm0lMjB3b29kfGVufDB8fHx8MTc4OTAyNzczNXww&ixlib=rb-4.1.0&q=85",
+        "description": "Bespoke contemporary living lounge with cream curved sofa and warm oak wall paneling",
+        "usage": "Hero or Featured Project 01"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1760237655540-8197ef24838b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBpbnRlcmlvciUyMGFyY2hpdGVjdHVyZSUyMHdhcm0lMjB3b29kfGVufDB8fHx8MTc4OTAyNzczNXww&ixlib=rb-4.1.0&q=85",
+        "description": "Architectural warm timber geometric ceiling and bespoke fluting",
+        "usage": "Materials, Craftsmanship & Brochure Cover spread"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1758448755927-e5c5ae14790c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBraXRjaGVuJTIwbWFyYmxlJTIwZGFyayUyMHdvb2R8ZW58MHx8fHwxNzg5MDI3NzM1fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Modular island kitchen with bookmatched marble waterfall and smoked cabinetry",
+        "usage": "Modular Kitchen Service Showcase & Brochure Portfolio"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1771270731051-9cfbb7222946?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBraXRjaGVuJTIwbWFyYmxlJTIwZGFyayUyMHdvb2R8ZW58MHx8fHwxNzg5MDI3NzM1fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Dark luxury minimalist kitchen with vertical wood cladding and concealed lights",
+        "usage": "Kitchen Specialist Card"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1693578616322-c8abe6c7393d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwbGl2aW5nJTIwcm9vbSUyMHdvb2R8ZW58MHx8fHwxNzg5MDI3NzM1fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Sculptural living area with circular timber coffee table and low-slung seating",
+        "usage": "Living Spaces and Custom Furniture Showcase"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1760385737098-0b555a75b2ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBpbnRlcmlvciUyMGFyY2hpdGVjdHVyZSUyMHdhcm0lMjB3b29kfGVufDB8fHx8MTc4OTAyNzczNXww&ixlib=rb-4.1.0&q=85",
+        "description": "Grand timber double entrance doors with gold brass inlays and fluting",
+        "usage": "Architectural Millwork and Joinery Section"
+      }
+    ]
+  },
+  "motion_and_microinteractions": {
+    "smooth_scrolling": "ReactLenis already configured, retain with lerp 0.085",
+    "framer_motion_patterns": {
+      "fade_up": {
+        "initial": { "opacity": 0, "y": 24 },
+        "whileInView": { "opacity": 1, "y": 0 },
+        "viewport": { "once": true, "margin": "-10%" },
+        "transition": { "duration": 0.8, "ease": [0.22, 1, 0.36, 1] }
+      },
+      "image_zoom_hover": "scale(1.04) transition duration-700 ease-out",
+      "editorial_reveal": "Text masked reveal with staggered spans"
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. Replace Bodoni Moda in public/index.html and tailwind.config.js with Cormorant Garamond (display) and Plus Jakarta Sans (sans).",
+    "2. Update the wordmark in Header.jsx, Footer.jsx, MobileMenu.jsx to use Cormorant Garamond with tracking-[0.28em] and refined luxury architectural proportions.",
+    "3. Build the new /brochure page (Digital Luxury Brochure with 6 distinct spreads: Cover, Philosophy, Services, Projects, Material Craftsmanship, Studio Contact) plus a print-optimized layout triggered by 'Download Brochure / Print' button.",
+    "4. Add the /brochure route to App.js and include 'Brochure' in nav and mobileNav arrays in site.js.",
+    "5. Implement a sticky mobile bar at the bottom for instant WhatsApp + Phone call + Brochure download with test ids.",
+    "6. Ensure all interactive and key informational elements have rigorous data-testid attributes.",
+    "7. Never use full transparent backgrounds behind sticky nav or dropdowns."
   ]
 }

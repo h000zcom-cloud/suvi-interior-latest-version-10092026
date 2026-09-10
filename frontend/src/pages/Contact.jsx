@@ -31,7 +31,7 @@ export default function Contact() {
       <section className="container-x grid gap-16 pb-20 md:pb-28 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Reveal delay={0.3}>
-            <p className="font-display text-2xl uppercase leading-none tracking-[0.08em]">{site.name}</p>
+            <p className="font-display text-3xl leading-none tracking-[-0.01em]">{site.name}</p>
             <p className="mt-2 text-sm text-taupe">
               {site.city} · {site.region}
             </p>

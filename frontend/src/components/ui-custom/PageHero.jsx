@@ -21,6 +21,7 @@ export const PageHero = ({ label, lines, image, text, className, imgClassName })
     <section className={cn("relative h-[72svh] min-h-[520px] overflow-hidden bg-charcoal text-ivory", className)}>
       <ParallaxImage image={image} priority className="absolute inset-0 h-full w-full" strength={6} imgClassName={cn("opacity-90", imgClassName)} />
       <div className="absolute inset-0 bg-charcoal/40" aria-hidden="true" />
+      <div className="frame-inset hidden sm:block" aria-hidden="true" />
       <div className="container-x relative z-10 flex h-full flex-col justify-end pb-14 md:pb-20">
         {label && (
           <Reveal delay={0.1}>

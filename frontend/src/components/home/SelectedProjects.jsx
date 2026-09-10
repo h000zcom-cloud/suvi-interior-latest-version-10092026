@@ -14,7 +14,7 @@ export const SelectedProjects = () => {
         <SectionHead
           index="02"
           label="Selected Projects"
-          title={<>Work that <span className="italic normal-case">lives</span> well</>}
+          title={<>Work that <span className="italic">lives well.</span></>}
           action={
             <Link to="/projects" data-testid="projects-all-link" className="btn-text">
               All projects <ArrowRight className="h-4 w-4" strokeWidth={1.5} />

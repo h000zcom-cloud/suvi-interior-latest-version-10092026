@@ -25,7 +25,7 @@ const DesktopList = () => {
               className="group flex items-center gap-8 py-7"
             >
               <span className={cn("label w-6 shrink-0 transition-colors duration-500", active === i ? "text-burgundy" : "text-taupe")}>{s.number}</span>
-              <span className={cn("font-display text-[clamp(1.75rem,3.2vw,2.75rem)] uppercase leading-none tracking-[-0.01em] transition-[transform,color] duration-700 ease-out group-hover:translate-x-3", active === i ? "text-charcoal" : "text-charcoal/50")}>
+              <span className={cn("font-display font-light text-[clamp(2rem,3.6vw,3.25rem)] leading-none tracking-[-0.02em] transition-[transform,color] duration-700 ease-out group-hover:translate-x-3", active === i ? "text-charcoal" : "text-charcoal/50")}>
                 {s.title}
               </span>
               <span className={cn("ml-auto hidden max-w-[220px] text-right text-xs leading-relaxed text-taupe transition-opacity duration-500 xl:block", active === i ? "opacity-100" : "opacity-0")}>{s.short}</span>
@@ -80,7 +80,7 @@ const MobileAccordion = () => {
               className="flex min-h-[64px] w-full items-center gap-5 py-4 text-left"
             >
               <span className={cn("label w-6 shrink-0", isOpen ? "text-burgundy" : "text-taupe")}>{s.number}</span>
-              <span className={cn("font-display text-[clamp(1.375rem,6vw,2rem)] uppercase leading-[0.95] tracking-[-0.01em] transition-colors duration-300", isOpen ? "text-charcoal" : "text-charcoal/70")}>{s.title}</span>
+              <span className={cn("font-display font-light text-[clamp(1.625rem,7vw,2.5rem)] leading-[0.95] tracking-[-0.02em] transition-colors duration-300", isOpen ? "text-charcoal" : "text-charcoal/70")}>{s.title}</span>
               <Plus className={cn("ml-auto h-4 w-4 shrink-0 text-taupe transition-transform duration-500 ease-out", isOpen && "rotate-45 text-burgundy")} strokeWidth={1.5} />
             </button>
             <AnimatePresence initial={false}>
@@ -118,7 +118,7 @@ export const ServicesList = () => (
       <SectionHead
         index="03"
         label="What we design"
-        title={<>Kitchens, furniture &amp; <span className="italic normal-case">complete</span> interiors</>}
+        title={<>Kitchens, furniture &amp; <span className="italic">complete interiors.</span></>}
         titleClassName="max-w-3xl"
         action={
           <Link to="/services" data-testid="services-all-link" className="btn-text">

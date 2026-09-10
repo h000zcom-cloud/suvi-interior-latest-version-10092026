@@ -14,7 +14,7 @@ export const Intro = () => (
             <span className="text-burgundy">01</span> The Studio <span className="text-line">/</span> {site.city}
           </p>
         </Reveal>
-        <SplitLines inView as="h2" delay={0.1} lines={["Designing", "spaces that", "feel like you."]} className="h-display mt-8 text-[clamp(2.5rem,8vw,6rem)]" />
+        <SplitLines inView as="h2" delay={0.1} lines={["Designing", "spaces that", <span className="italic">feel like you.</span>]} className="h-display mt-8 text-[clamp(2.75rem,8vw,6.5rem)]" />
         <Reveal delay={0.25} className="mt-10 grid gap-8 sm:grid-cols-2 lg:mt-14">
           <p className="lede">
             Suvi Interior is an interior design and furniture studio in Nashik. We design homes and make the furniture that goes into them — modular kitchens, wardrobes, TV units, cabinets and complete interiors.

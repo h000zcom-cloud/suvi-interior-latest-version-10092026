@@ -4,7 +4,7 @@ import { principles } from "@/content/process";
 import { img } from "@/content/images";
 
 export const Philosophy = ({ index = "07" }) => (
-  <section data-testid="philosophy-section" className="bg-charcoal text-ivory">
+  <section data-testid="philosophy-section" className="bg-night text-ivory">
     <div className="container-x section">
       <div className="grid gap-14 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">

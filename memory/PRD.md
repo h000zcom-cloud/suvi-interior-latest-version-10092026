@@ -8,7 +8,7 @@ Build a complete, production-quality, premium editorial website for **SUVI INTER
 - Form enquiries: save to MongoDB (default). Google reviews: hidden placeholder. Imagery: curated stock + generated representative imagery (labelled). Founder/testimonials/hours/email/social: editable placeholders (hidden until provided).
 
 ## Architecture
-- **Frontend**: React 19 (CRA/craco), Tailwind, framer-motion (reveals, masked line reveals, parallax, page transitions), Lenis smooth scroll, react-router v7. Fonts: Bodoni Moda (display) + Hanken Grotesk (sans). Palette: ivory #F4F1EA, charcoal #1C1A17, taupe #8A8078, walnut #5A3E2B, night #161412.
+- **Frontend**: React 19 (CRA/craco), Tailwind, framer-motion (reveals, masked line reveals, parallax, page transitions), Lenis smooth scroll, react-router v7. Fonts (session 2 luxury redesign): Cormorant Garamond (display, mixed-case light) + Plus Jakarta Sans (body). Palette: ivory #F8F6F0, night/charcoal #141210, taupe #766C63, brass #C5A880, bronze accent #8A6A42 (tailwind key `burgundy`/`bronze`), line #DCD5C8. Wordmark = `Wordmark.jsx` (SUVI ◆ INTERIOR, tracking 0.32em).
 - **Content layer** (`/app/frontend/src/content/`): `site.js` (business info, phone, WhatsApp, email/social/hours/googleReviews placeholders, nav, project types), `services.js`, `projects.js` (placeholder archive, `isPlaceholder: true`), `gallery.js`, `testimonials.js` (empty → section hidden), `about.js` (founder null → hidden), `images.js` (all imagery; swap here), `process.js`.
 - **Backend**: FastAPI + Motor. `GET /api/health`, `GET /api/enquiries/project-types`, `POST /api/enquiries` (public, validated), `GET /api/enquiries` (requires `X-Admin-Key` from backend `.env`). Pydantic `BaseDocument` with `PyObjectId`.
 - **SEO**: per-page title/description/canonical/OG via `Seo.jsx`; JSON-LD LocalBusiness (site-wide) + BreadcrumbList; `public/robots.txt`, `public/sitemap.xml` (domain currently the preview URL — update on custom domain).
@@ -24,7 +24,14 @@ Premium editorial design; mobile-first; restrained motion + reduced-motion suppo
 - Header (transparent → solid), full-screen mobile menu, dark footer with giant wordmark, floating WhatsApp (desktop) + sticky Call/WhatsApp bar (mobile), session preloader.
 - Backend enquiries API with admin-key listing. Testing agent iteration 1: 100% backend + frontend pass.
 
+## Implemented (2026-06 — session 2: luxury redesign + brochure)
+- Global typography/palette overhaul (index.css, tailwind.config.js, index.html fonts). Headings now Cormorant Garamond mixed-case with italic brass accents; body Plus Jakarta Sans; film-grain overlay; hairline `frame-inset` on heroes.
+- Redesigned: Header (glass on scroll, wordmark + descriptor, ghost CTA, Brochure nav), MobileMenu (large serif nav, gold CTA, Call/WhatsApp/Brochure tiles), Footer (CTA row, serif phone, italic giant wordmark), Preloader, Hero (new copy, gold CTA + brochure link, facets row on tall screens), marquee `Strip.jsx`, CtaBand gold button, mobile sticky bar (Call / WhatsApp[brass] / Brochure, glass-dark).
+- NEW `/brochure` page (`pages/Brochure.jsx`): cover, sticky action bar (Download PDF + Print), studio note, 6 capabilities, process, materials, selected work, studio/map, download band, CTA. Print CSS in index.css.
+- NEW backend `GET /api/brochure.pdf` (`backend/brochure.py` + `brochure_content.py`, reportlab, bundled TTFs in `backend/fonts/`, image cache `backend/cache/`, in-memory PDF cache): 7-page A4 brochure (cover, studio, 2× capabilities, process [dark], materials, studio contact with WhatsApp QR). `SITE_URL` env in backend/.env prints website on last page. ~3 MB.
+- Testing agent iteration 2: 100% pass (backend 15 tests, frontend desktop + mobile, no console errors, no overflow).
+
 ## Backlog / next tasks
 - **P0**: Replace representative imagery with real Suvi Interior project photos (`content/images.js`, `projects.js`, `gallery.js`); confirm service copy; add real project names/years.
-- **P1**: Email/WhatsApp notification on new enquiry (needs receiving email — Resend); founder/team story; verified Google rating + Business link (`site.googleReviews`); business hours; email + social links; update sitemap/robots domain on launch.
+- **P1**: Regenerate brochure PDF automatically when content changes (currently cached per process; restart backend to refresh). Email/WhatsApp notification on new enquiry (needs receiving email — Resend); founder/team story; verified Google rating + Business link (`site.googleReviews`); business hours; email + social links; update sitemap/robots domain on launch.
 - **P2**: Rate limiting/honeypot on `POST /api/enquiries`; simple admin view for enquiries; testimonials once approved; blog/journal.

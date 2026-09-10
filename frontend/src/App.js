@@ -17,6 +17,7 @@ import ProjectDetail from "@/pages/ProjectDetail";
 import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
 import Process from "@/pages/Process";
+import Brochure from "@/pages/Brochure";
 import { Privacy, Terms, NotFound } from "@/pages/Legal";
 
 function Shell() {
@@ -45,6 +46,7 @@ function Shell() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/process" element={<Process />} />
+          <Route path="/brochure" element={<Brochure />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />

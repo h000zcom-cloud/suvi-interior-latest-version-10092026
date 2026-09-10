@@ -12,7 +12,7 @@ export const CtaBand = ({
   whatsappMessage,
   testId = "final-cta",
 }) => (
-  <section data-testid={testId} className="bg-charcoal text-ivory">
+  <section data-testid={testId} className="bg-night text-ivory">
     <div className="container-x section grid gap-14 lg:grid-cols-12">
       <div className="lg:col-span-7">
         <Reveal>
@@ -23,7 +23,7 @@ export const CtaBand = ({
       <Reveal delay={0.25} className="flex flex-col justify-end gap-10 lg:col-span-4 lg:col-start-9">
         <p className="max-w-sm text-base leading-relaxed text-ivory/70">{text}</p>
         <div className="flex flex-col items-start gap-6">
-          <Link to="/contact" data-testid={`${testId}-start`} className="btn-text-light text-[12px]">
+          <Link to="/contact" data-testid={`${testId}-start`} className="btn-gold">
             {primaryLabel} <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
           </Link>
           <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-night-line pt-6">

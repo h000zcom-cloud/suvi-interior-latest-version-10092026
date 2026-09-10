@@ -16,7 +16,7 @@ BASE_URL = base_url.rstrip("/")
 def _admin_key():
     p = Path("/app/memory/test_credentials.md")
     if p.exists():
-        m = re.search(r"X-Admin-Key:\s*`?([A-Za-z0-9]+)", p.read_text())
+        m = re.search(r"X-Admin-Key:\s*`?([A-Za-z0-9\-]+)", p.read_text())
         if m:
             return m.group(1)
     return None
@@ -126,3 +126,26 @@ class TestEnquiries:
         assert item["name"] == "TEST_QA User"
         assert item["status"] == "new"
         assert "_id" not in item
+
+
+
+# --- Brochure PDF ---
+class TestBrochurePDF:
+    def test_brochure_pdf_first_call(self, api):
+        r = api.get(f"{BASE_URL}/api/brochure.pdf", timeout=60)
+        assert r.status_code == 200
+        assert r.headers["content-type"].startswith("application/pdf")
+        assert "Suvi-Interior-Brochure.pdf" in r.headers.get("content-disposition", "")
+        assert len(r.content) > 500 * 1024, f"pdf too small: {len(r.content)}"
+        # verify pages with pymupdf
+        try:
+            import pymupdf
+            doc = pymupdf.open(stream=r.content, filetype="pdf")
+            assert doc.page_count == 7, f"pages: {doc.page_count}"
+        except ImportError:
+            pass
+
+    def test_brochure_pdf_cached_second_call(self, api):
+        r = api.get(f"{BASE_URL}/api/brochure.pdf", timeout=30)
+        assert r.status_code == 200
+        assert r.headers["content-type"].startswith("application/pdf")

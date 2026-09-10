@@ -36,7 +36,7 @@ export const Materials = ({ index = "06" }) => (
           <Reveal key={m.title} delay={(i % 3) * 0.08} className={cn("w-[70vw] shrink-0 snap-start sm:w-[46vw] md:w-auto", LAYOUT[i])}>
             <ParallaxImage image={m} ratio={m.ratio} strength={4 + (i % 3) * 2} sizes="(min-width: 768px) 33vw, 70vw" data-testid={`material-${i}`} />
             <div className="mt-4 flex items-baseline justify-between gap-4 border-t border-line/80 pt-3">
-              <p className="font-display text-xl uppercase tracking-[0.02em]">{m.title}</p>
+              <p className="font-display text-2xl leading-none">{m.title}</p>
               <p className="label text-right text-taupe">{m.note}</p>
             </div>
           </Reveal>

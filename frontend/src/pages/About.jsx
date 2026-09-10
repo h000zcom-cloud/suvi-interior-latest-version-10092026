@@ -83,7 +83,7 @@ export default function About() {
           <div className="container-x grid gap-12 py-20 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <p className="label text-taupe">Founder</p>
-              <h2 className="mt-6 font-display text-4xl uppercase leading-none">{about.founder.name}</h2>
+              <h2 className="mt-6 font-display text-4xl leading-none">{about.founder.name}</h2>
               <p className="mt-6 max-w-md text-base leading-relaxed text-taupe">{about.founder.bio}</p>
             </div>
           </div>

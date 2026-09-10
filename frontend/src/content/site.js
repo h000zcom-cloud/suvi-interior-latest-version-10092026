@@ -5,7 +5,7 @@ export const site = {
   name: "Suvi Interior",
   wordmark: ["Suvi", "Interior"],
   tagline: "Interior design, custom furniture and execution — Nashik",
-  descriptor: "Kitchen & Modular Furniture",
+  descriptor: "Interior Design & Furniture · Nashik",
   positioning:
     "A premium interior and furniture studio creating thoughtfully designed spaces with precision, functionality and timeless aesthetics.",
   description:
@@ -64,7 +64,7 @@ export const nav = [
   { label: "Services", to: "/services" },
   { label: "Studio", to: "/about" },
   { label: "Process", to: "/process" },
-  { label: "Contact", to: "/contact" },
+  { label: "Brochure", to: "/brochure" },
 ];
 
 export const mobileNav = [
@@ -73,6 +73,7 @@ export const mobileNav = [
   { label: "Studio", to: "/about" },
   { label: "Process", to: "/process" },
   { label: "Gallery", to: "/gallery" },
+  { label: "Brochure", to: "/brochure" },
   { label: "Contact", to: "/contact" },
 ];
 

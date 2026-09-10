@@ -112,7 +112,7 @@ export default function Services() {
               <li key={s.slug}>
                 <a href={`#${s.slug}`} data-testid={`service-index-${s.slug}`} className="group flex min-h-[44px] items-baseline gap-4 py-2">
                   <span className="label text-burgundy">{s.number}</span>
-                  <span className="link-underline font-display text-xl uppercase leading-none tracking-[-0.01em] sm:text-2xl">{s.title}</span>
+                  <span className="link-underline font-display text-2xl leading-none tracking-[-0.01em] sm:text-3xl">{s.title}</span>
                 </a>
               </li>
             ))}

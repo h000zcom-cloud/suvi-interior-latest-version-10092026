@@ -10,7 +10,7 @@ const Legal = ({ title, path, children, testId }) => (
     <section className="container-x pt-32 pb-24 md:pt-44 md:pb-32">
       <Reveal>
         <p className="label text-taupe">Legal</p>
-        <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-[-0.01em] sm:text-6xl lg:text-7xl">{title}</h1>
+        <h1 className="mt-6 font-display font-light text-5xl leading-[0.98] tracking-[-0.02em] sm:text-6xl lg:text-7xl">{title}</h1>
       </Reveal>
       <Reveal delay={0.15} className="prose-custom mt-14 max-w-2xl text-base leading-relaxed text-charcoal/85 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:uppercase [&_p]:mt-4 [&_p]:text-taupe">
         {children}
@@ -61,7 +61,7 @@ export function NotFound() {
       <Seo title="Page not found" path="/404" />
       <section className="container-x flex min-h-[70svh] flex-col justify-center pt-32 pb-24">
         <p className="label text-taupe">404</p>
-        <h1 className="mt-6 font-display text-5xl uppercase leading-[0.95] tracking-[-0.01em] sm:text-7xl">
+        <h1 className="mt-6 font-display font-light text-5xl leading-[0.98] tracking-[-0.02em] sm:text-7xl">
           This room <span className="italic normal-case">doesn't exist.</span>
         </h1>
         <Link to="/" data-testid="notfound-home" className="btn btn-solid mt-12 w-fit">

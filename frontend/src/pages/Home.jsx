@@ -1,6 +1,7 @@
 import { PageWrap } from "@/components/layout/PageWrap";
 import { Seo } from "@/components/layout/Seo";
 import { Hero } from "@/components/home/Hero";
+import { Strip } from "@/components/home/Strip";
 import { Intro } from "@/components/home/Intro";
 import { SelectedProjects } from "@/components/home/SelectedProjects";
 import { ServicesList } from "@/components/home/ServicesList";
@@ -17,6 +18,7 @@ export default function Home() {
     <PageWrap theme="light" testId="home-page">
       <Seo path="/" />
       <Hero />
+      <Strip />
       <Intro />
       <SelectedProjects />
       <ServicesList />

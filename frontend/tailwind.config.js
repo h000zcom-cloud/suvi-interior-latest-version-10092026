@@ -5,21 +5,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Bodoni Moda"', "Georgia", "serif"],
-        sans: ['"Hanken Grotesk"', "system-ui", "sans-serif"],
+        display: ['"Cormorant Garamond"', "Georgia", "serif"],
+        sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
       },
       colors: {
-        ivory: { DEFAULT: "#F1EEE7", 2: "#E7E1D7", 3: "#DDD6C9" },
-        soft: "#FCFAF6",
-        sand: "#E7E1D7",
-        charcoal: "#191613",
-        taupe: "#6B6257",
-        burgundy: "#5E1312",
-        terracotta: "#8F5B4C",
-        walnut: "#644C33",
-        brass: "#B08A62",
-        line: "#CFC7BA",
-        night: { DEFAULT: "#191613", 2: "#221E1A", line: "#312B25" },
+        ivory: { DEFAULT: "#F8F6F0", 2: "#F0ECE4", 3: "#E7E1D6" },
+        soft: "#FCFBF7",
+        sand: "#EDE8DF",
+        charcoal: "#141210",
+        taupe: "#766C63",
+        burgundy: "#8A6A42",
+        bronze: "#8A6A42",
+        terracotta: "#8A4D3B",
+        walnut: "#4A3B32",
+        brass: "#C5A880",
+        line: "#DCD5C8",
+        night: { DEFAULT: "#141210", 2: "#1B1815", line: "#2B2622" },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
@@ -42,6 +43,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        marquee: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } },
         scrollline: {
           "0%": { transform: "scaleY(0)", transformOrigin: "top" },
           "50%": { transform: "scaleY(1)", transformOrigin: "top" },
@@ -51,6 +53,7 @@ module.exports = {
       },
       animation: {
         scrollline: "scrollline 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite",
+        marquee: "marquee 48s linear infinite",
       },
     },
   },

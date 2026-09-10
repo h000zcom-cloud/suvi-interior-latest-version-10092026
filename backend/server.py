@@ -1,4 +1,5 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Header
+from fastapi import FastAPI, APIRouter, HTTPException, Header, Response
+from fastapi.concurrency import run_in_threadpool
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -9,6 +10,8 @@ from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, BeforeValidator, field_validator
 from typing import List, Optional, Annotated
 from datetime import datetime, timezone
+
+from brochure import build_pdf
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -116,6 +119,20 @@ async def list_enquiries(x_admin_key: Optional[str] = Header(default=None)):
         raise HTTPException(status_code=401, detail="Unauthorized")
     docs = await db.enquiries.find({}).sort("created_at", -1).to_list(500)
     return [Enquiry.from_mongo(d) for d in docs]
+
+
+_pdf_cache: dict = {}
+
+
+@api_router.get("/brochure.pdf")
+async def brochure_pdf():
+    if "bytes" not in _pdf_cache:
+        _pdf_cache["bytes"] = await run_in_threadpool(build_pdf)
+    return Response(
+        content=_pdf_cache["bytes"],
+        media_type="application/pdf",
+        headers={"Content-Disposition": 'inline; filename="Suvi-Interior-Brochure.pdf"', "Cache-Control": "public, max-age=3600"},
+    )
 
 
 app.include_router(api_router)

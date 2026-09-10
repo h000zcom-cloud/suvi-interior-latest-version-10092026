@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Wordmark } from "@/components/ui-custom/Wordmark";
 import { site } from "@/content/site";
 import { services } from "@/content/services";
 import { directionsLink, telLink, waLink } from "@/lib/contact";
@@ -7,20 +9,36 @@ const studioLinks = [
   { label: "Studio", to: "/about" },
   { label: "Process", to: "/process" },
   { label: "Gallery", to: "/gallery" },
+  { label: "Brochure", to: "/brochure" },
   { label: "Contact", to: "/contact" },
 ];
 
-const col = "label text-ivory/45";
-const link = "link-underline inline-block py-0.5 text-sm text-ivory/85 hover:text-ivory";
+const col = "label text-ivory/40";
+const link = "link-underline inline-block py-0.5 text-sm text-ivory/80 hover:text-ivory";
 
 export const Footer = () => (
-  <footer data-testid="site-footer" className="border-t border-night-line bg-charcoal text-ivory pb-16 lg:pb-0">
+  <footer data-testid="site-footer" className="bg-night text-ivory pb-[72px] lg:pb-0">
     <div className="container-x">
-      <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12 lg:py-24">
+      <div className="flex flex-col gap-10 border-b border-night-line py-14 md:flex-row md:items-end md:justify-between lg:py-20">
+        <div>
+          <p className="label flex items-center gap-4 text-ivory/40">
+            <span className="h-px w-8 bg-brass" />
+            Begin a conversation
+          </p>
+          <p className="h-section mt-6 max-w-xl text-ivory">
+            Designed and made <span className="italic">in Nashik.</span>
+          </p>
+        </div>
+        <Link to="/contact" data-testid="footer-cta" className="btn-gold self-start md:self-auto">
+          Start a Project <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
+        </Link>
+      </div>
+
+      <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:py-20">
         <div className="lg:col-span-4">
-          <p className="font-display text-[17px] uppercase tracking-[0.24em]">Suvi Interior</p>
-          <p className="mt-2 text-[10px] uppercase tracking-[0.16em] text-ivory/55">{site.descriptor}</p>
-          <p className="mt-8 max-w-xs text-sm leading-relaxed text-ivory/65">{site.positioning}</p>
+          <Wordmark size="md" />
+          <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-ivory/45">{site.descriptor}</p>
+          <p className="mt-8 max-w-xs text-sm leading-[1.75] text-ivory/60">{site.positioning}</p>
         </div>
         <div className="lg:col-span-2">
           <p className={col}>Studio</p>
@@ -55,7 +73,7 @@ export const Footer = () => (
           <p className={col}>Contact</p>
           <ul className="mt-6 flex flex-col gap-2.5 text-sm">
             <li>
-              <a href={telLink()} data-testid="footer-phone" className={link}>
+              <a href={telLink()} data-testid="footer-phone" className="link-underline inline-block font-display text-2xl tracking-tight text-ivory hover:text-brass">
                 {site.phone.display}
               </a>
             </li>
@@ -82,11 +100,11 @@ export const Footer = () => (
             )}
             <li>
               <a href={directionsLink()} target="_blank" rel="noopener noreferrer" data-testid="footer-location" className={link}>
-                Location
+                Directions
               </a>
             </li>
           </ul>
-          <address className="mt-8 text-xs not-italic leading-relaxed text-ivory/50" data-testid="footer-address">
+          <address className="mt-8 text-xs not-italic leading-relaxed text-ivory/45" data-testid="footer-address">
             {site.address.lines.map((l) => (
               <span key={l} className="block">
                 {l}
@@ -96,11 +114,11 @@ export const Footer = () => (
         </div>
       </div>
 
-      <div className="overflow-hidden border-t border-night-line pt-8 md:pt-12" aria-hidden="true">
-        <p className="font-display text-[17vw] uppercase leading-[0.84] tracking-[-0.02em] text-ivory select-none">Suvi Interior</p>
+      <div className="overflow-hidden border-t border-night-line pt-8 md:pt-10" aria-hidden="true">
+        <p className="select-none font-display font-light text-[15.5vw] italic leading-[0.82] tracking-[-0.03em] text-ivory/95">Suvi Interior</p>
       </div>
 
-      <div className="flex flex-col gap-3 border-t border-night-line py-6 text-[11px] uppercase tracking-[0.14em] text-ivory/45 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-3 border-t border-night-line py-6 text-[10px] uppercase tracking-[0.16em] text-ivory/40 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} Suvi Interior · All rights reserved · Nashik, India</p>
         <div className="flex gap-6">
           <Link to="/privacy" data-testid="footer-privacy" className="link-underline hover:text-ivory">
