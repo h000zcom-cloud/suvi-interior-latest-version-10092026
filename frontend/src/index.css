@@ -52,12 +52,12 @@
   }
 
   ::selection {
-    background: #8a6a42;
+    background: #58130e;
     color: #f8f6f0;
   }
 
   :focus-visible {
-    outline: 1.5px solid #8a6a42;
+    outline: 1.5px solid #58130e;
     outline-offset: 4px;
   }
 
@@ -81,7 +81,7 @@
   }
 
   .section {
-    @apply py-20 md:py-28 xl:py-36;
+    @apply py-16 md:py-24 xl:py-28;
   }
   .section-sm {
     @apply py-14 md:py-20 xl:py-24;
@@ -96,6 +96,31 @@
   }
   .wordmark-dot {
     @apply mx-[0.45em] inline-block h-[0.26em] w-[0.26em] shrink-0 rotate-45 bg-brass;
+  }
+  .wm-word {
+    @apply inline-flex;
+  }
+  .wm-l {
+    @apply relative inline-block h-[1em] overflow-hidden leading-none;
+  }
+  .wm-l > span {
+    @apply flex flex-col leading-none;
+    transition: transform 0.65s var(--ease-out);
+  }
+  .wm-l > span > span {
+    @apply block h-[1em] leading-none;
+  }
+  .group:hover .wm-l > span {
+    transform: translateY(-1em);
+  }
+
+  .shimmer-mask {
+    -webkit-mask-image: linear-gradient(105deg, transparent 38%, #000 50%, transparent 62%);
+    mask-image: linear-gradient(105deg, transparent 38%, #000 50%, transparent 62%);
+    -webkit-mask-size: 300% 100%;
+    mask-size: 300% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
 
   .h-display {
@@ -122,13 +147,16 @@
     @apply inline-flex items-center justify-center gap-3 text-[10.5px] font-medium uppercase tracking-[0.2em] transition-[background-color,color,border-color,transform] duration-500 ease-out;
   }
   .btn-solid {
-    @apply btn bg-charcoal px-8 py-[1.05rem] text-ivory hover:bg-bronze;
+    @apply btn bg-charcoal px-8 py-[1.05rem] text-ivory hover:bg-oxblood;
+  }
+  .btn-brand {
+    @apply btn bg-oxblood px-8 py-[1.05rem] text-ivory hover:bg-oxblood-light;
   }
   .btn-gold {
     @apply btn bg-brass px-8 py-[1.05rem] text-charcoal hover:bg-ivory;
   }
   .btn-outline {
-    @apply btn border border-charcoal/30 px-8 py-[1.05rem] text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-ivory;
+    @apply btn border border-charcoal/30 px-8 py-[1.05rem] text-charcoal hover:border-oxblood hover:bg-oxblood hover:text-ivory;
   }
   .btn-light {
     @apply btn bg-ivory px-8 py-[1.05rem] text-charcoal hover:bg-brass;
@@ -137,14 +165,14 @@
     @apply btn border border-ivory/40 px-8 py-[1.05rem] text-ivory hover:border-brass hover:bg-brass hover:text-charcoal;
   }
   .btn-ghost {
-    @apply btn border border-charcoal/25 px-5 py-2.5 text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-ivory;
+    @apply btn border border-charcoal/25 px-5 py-2.5 text-charcoal hover:border-oxblood hover:bg-oxblood hover:text-ivory;
   }
   .btn-ghost-light {
     @apply btn border border-ivory/35 px-5 py-2.5 text-ivory hover:border-brass hover:bg-brass hover:text-charcoal;
   }
 
   .btn-text {
-    @apply btn relative py-2 text-charcoal hover:text-bronze;
+    @apply btn relative py-2 text-charcoal hover:text-oxblood;
   }
   .btn-text::after {
     content: "";
@@ -191,6 +219,9 @@
     transform-origin: left;
   }
   .link-underline.is-active::after {
+    background: #58130e;
+  }
+  .text-ivory .link-underline.is-active::after {
     background: #c5a880;
   }
 
@@ -201,7 +232,7 @@
     transition: transform 0.5s var(--ease-out);
   }
   .arrow-link:hover {
-    @apply text-bronze;
+    @apply text-oxblood;
   }
   .arrow-link:hover svg {
     transform: translate(4px, -4px);

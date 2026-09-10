@@ -28,8 +28,8 @@ export const Header = ({ menuOpen, onToggle }) => {
       )}
     >
       <div className="container-x flex h-[68px] items-center justify-between lg:h-[84px]">
-        <Link to="/" data-testid="header-logo" className="flex flex-col gap-2" aria-label="Suvi Interior — Home">
-          <Wordmark />
+        <Link to="/" data-testid="header-logo" className="group flex flex-col gap-2" aria-label="Suvi Interior — Home">
+          <Wordmark roll />
           <span className={cn("hidden text-[9px] uppercase tracking-[0.24em] transition-colors duration-500 lg:block", onDark ? "text-ivory/55" : "text-taupe")}>
             Interior Design &amp; Furniture · Nashik
           </span>

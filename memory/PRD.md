@@ -31,6 +31,14 @@ Premium editorial design; mobile-first; restrained motion + reduced-motion suppo
 - NEW backend `GET /api/brochure.pdf` (`backend/brochure.py` + `brochure_content.py`, reportlab, bundled TTFs in `backend/fonts/`, image cache `backend/cache/`, in-memory PDF cache): 7-page A4 brochure (cover, studio, 2× capabilities, process [dark], materials, studio contact with WhatsApp QR). `SITE_URL` env in backend/.env prints website on last page. ~3 MB.
 - Testing agent iteration 2: 100% pass (backend 15 tests, frontend desktop + mobile, no console errors, no overflow).
 
+## Implemented (2026-06 — session 3: brand colour, preloader, hero, lead gate)
+- Brand colour **#58130E (oxblood)** added to Tailwind (`oxblood`, `oxblood-light #7A2A22`, `oxblood-soft`, `oxblood-deep`); `burgundy` alias remapped to it so all section numerals/hover states use brand. New `.btn-brand`. Philosophy section is now a full-bleed oxblood band. Brass stays as the metallic secondary.
+- NEW cinematic preloader (`Preloader.jsx`): letter-by-letter wordmark reveal, brass progress hairline + 0–100 italic counter, looping brass shimmer sweep (mask-image), letters exit upward, oxblood wipe + clip-path curtain exit. `introDelay` = 2.75s.
+- Wordmark `roll` prop: letter-roll hover animation on header + footer logos. Footer giant italic wordmark is an infinite slow marquee loop.
+- Home hero is now a 3-slide editorial slideshow (living / kitchen / bedroom) with crossfade + Ken Burns, brass progress bars, caption + index, oxblood primary CTA. Home section spacing tightened.
+- Brochure lead capture (`components/brochure/LeadGate.jsx`): every Download PDF button opens a modal (name + WhatsApp number) → POST /api/enquiries (project_type Other, requirement "Brochure download", source_page /brochure) → PDF opens, success state, localStorage `suvi-brochure-lead` unlocks direct links thereafter.
+- Testing agent iteration 3: 100% pass (backend 15/15; preloader, slideshow, brand colours, loops, gate flow, admin listing, mobile, regression).
+
 ## Backlog / next tasks
 - **P0**: Replace representative imagery with real Suvi Interior project photos (`content/images.js`, `projects.js`, `gallery.js`); confirm service copy; add real project names/years.
 - **P1**: Regenerate brochure PDF automatically when content changes (currently cached per process; restart backend to refresh). Email/WhatsApp notification on new enquiry (needs receiving email — Resend); founder/team story; verified Google rating + Business link (`site.googleReviews`); business hours; email + social links; update sitemap/robots domain on launch.

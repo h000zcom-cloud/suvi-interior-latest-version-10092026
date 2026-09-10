@@ -14,7 +14,8 @@ module.exports = {
         sand: "#EDE8DF",
         charcoal: "#141210",
         taupe: "#766C63",
-        burgundy: "#8A6A42",
+        burgundy: "#58130E",
+        oxblood: { DEFAULT: "#58130E", light: "#7A2A22", soft: "#F3E9E6", deep: "#3E0C09" },
         bronze: "#8A6A42",
         terracotta: "#8A4D3B",
         walnut: "#4A3B32",
@@ -44,6 +45,9 @@ module.exports = {
       },
       keyframes: {
         marquee: { "0%": { transform: "translateX(0)" }, "100%": { transform: "translateX(-50%)" } },
+        shimmer: { "0%": { maskPosition: "150% 0", WebkitMaskPosition: "150% 0" }, "100%": { maskPosition: "-50% 0", WebkitMaskPosition: "-50% 0" } },
+        kenburns: { "0%": { transform: "scale(1)" }, "100%": { transform: "scale(1.09)" } },
+        fillbar: { "0%": { transform: "scaleX(0)" }, "100%": { transform: "scaleX(1)" } },
         scrollline: {
           "0%": { transform: "scaleY(0)", transformOrigin: "top" },
           "50%": { transform: "scaleY(1)", transformOrigin: "top" },
@@ -54,6 +58,10 @@ module.exports = {
       animation: {
         scrollline: "scrollline 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite",
         marquee: "marquee 48s linear infinite",
+        "marquee-slow": "marquee 70s linear infinite",
+        shimmer: "shimmer 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite",
+        kenburns: "kenburns 8s linear forwards",
+        fillbar: "fillbar 6.8s linear forwards",
       },
     },
   },

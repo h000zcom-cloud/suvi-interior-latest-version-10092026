@@ -36,7 +36,7 @@ export const Footer = () => (
 
       <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:py-20">
         <div className="lg:col-span-4">
-          <Wordmark size="md" />
+          <Link to="/" className="group inline-flex" aria-label="Suvi Interior — Home"><Wordmark size="md" roll /></Link>
           <p className="mt-3 text-[10px] uppercase tracking-[0.22em] text-ivory/45">{site.descriptor}</p>
           <p className="mt-8 max-w-xs text-sm leading-[1.75] text-ivory/60">{site.positioning}</p>
         </div>
@@ -114,8 +114,15 @@ export const Footer = () => (
         </div>
       </div>
 
-      <div className="overflow-hidden border-t border-night-line pt-8 md:pt-10" aria-hidden="true">
-        <p className="select-none font-display font-light text-[15.5vw] italic leading-[0.82] tracking-[-0.03em] text-ivory/95">Suvi Interior</p>
+      <div className="overflow-hidden border-t border-night-line py-8 md:py-10" aria-hidden="true" data-testid="footer-wordmark-loop">
+        <div className="flex w-max animate-marquee-slow will-change-transform">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <span key={i} className="flex select-none items-center font-display font-light text-[13vw] italic leading-[0.85] tracking-[-0.03em] text-ivory/95">
+              Suvi Interior
+              <span className="mx-[0.35em] inline-block h-[0.12em] w-[0.12em] rotate-45 bg-oxblood-light" />
+            </span>
+          ))}
+        </div>
       </div>
 
       <div className="flex flex-col gap-3 border-t border-night-line py-6 text-[10px] uppercase tracking-[0.16em] text-ivory/40 sm:flex-row sm:items-center sm:justify-between">

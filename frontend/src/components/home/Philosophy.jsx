@@ -4,12 +4,12 @@ import { principles } from "@/content/process";
 import { img } from "@/content/images";
 
 export const Philosophy = ({ index = "07" }) => (
-  <section data-testid="philosophy-section" className="bg-night text-ivory">
+  <section data-testid="philosophy-section" className="bg-oxblood text-ivory">
     <div className="container-x section">
       <div className="grid gap-14 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
           <Reveal>
-            <p className="label flex items-center gap-4 text-ivory/55">
+            <p className="label flex items-center gap-4 text-ivory/60">
               <span className="text-brass">{index}</span> Philosophy
             </p>
           </Reveal>
@@ -23,13 +23,13 @@ export const Philosophy = ({ index = "07" }) => (
           <Reveal delay={0.15}>
             <ParallaxImage image={img.kitchenWoodDark} ratio="4 / 5" sizes="(min-width: 1024px) 45vw, 100vw" strength={6} className="lg:-mt-10" />
           </Reveal>
-          <ol className="mt-14 border-t border-night-line">
+          <ol className="mt-14 border-t border-ivory/15">
             {principles.map((p, i) => (
-              <Reveal key={p.n} as="li" delay={0.1 * i} className="grid grid-cols-[3rem_1fr] gap-4 border-b border-night-line py-7 sm:grid-cols-[5rem_1fr]">
+              <Reveal key={p.n} as="li" delay={0.1 * i} className="grid grid-cols-[3rem_1fr] gap-4 border-b border-ivory/15 py-7 sm:grid-cols-[5rem_1fr]">
                 <span className="label pt-1.5 text-brass">{p.n}</span>
                 <div>
                   <h3 className="h-sub">{p.title}</h3>
-                  <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ivory/65">{p.text}</p>
+                  <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ivory/70">{p.text}</p>
                 </div>
               </Reveal>
             ))}

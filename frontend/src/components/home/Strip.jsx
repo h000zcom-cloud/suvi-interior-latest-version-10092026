@@ -6,7 +6,7 @@ export const Strip = () => (
       {[...items, ...items].map((t, i) => (
         <span key={i} className="label flex items-center gap-10 pr-10 text-taupe">
           <span className="font-display text-lg font-normal normal-case tracking-[0.02em] text-charcoal/80">{t}</span>
-          <span className="h-1 w-1 rotate-45 bg-brass" />
+          <span className="h-1 w-1 rotate-45 bg-oxblood" />
         </span>
       ))}
     </div>

@@ -22,13 +22,13 @@ export const SelectedProjects = () => {
           }
         />
 
-        <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-x-8 md:gap-y-24 lg:mt-24">
+        <div className="mt-14 grid gap-12 md:grid-cols-12 md:gap-x-8 md:gap-y-16 lg:mt-20">
           {a && <ProjectTile project={a} index="01" className="md:col-span-7" ratio="16 / 11" sizes="(min-width: 768px) 58vw, 100vw" />}
-          {b && <ProjectTile project={b} index="02" className="md:col-span-4 md:col-start-9 md:mt-40" ratio="4 / 5" sizes="(min-width: 768px) 33vw, 100vw" delay={0.1} />}
+          {b && <ProjectTile project={b} index="02" className="md:col-span-4 md:col-start-9 md:mt-28" ratio="4 / 5" sizes="(min-width: 768px) 33vw, 100vw" delay={0.1} />}
           {c && <ProjectTile project={c} index="03" className="md:col-span-5 md:col-start-3" ratio="1 / 1" sizes="(min-width: 768px) 41vw, 100vw" />}
         </div>
 
-        <Reveal className="mt-14 border-t border-line pt-4">
+        <Reveal className="mt-10 border-t border-line pt-4">
           <p className="text-xs text-taupe" data-testid="imagery-notice">{site.imageryNotice}</p>
         </Reveal>
       </div>

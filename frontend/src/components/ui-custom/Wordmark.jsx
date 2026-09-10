@@ -6,10 +6,23 @@ const SIZES = {
   lg: "text-[clamp(1.375rem,5.5vw,2.5rem)]",
 };
 
-export const Wordmark = ({ className, size = "md", ...rest }) => (
+const RollWord = ({ word, offset = 0 }) => (
+  <span className="wm-word" aria-hidden="true">
+    {word.split("").map((ch, i) => (
+      <span key={i} className="wm-l">
+        <span style={{ transitionDelay: `${(offset + i) * 28}ms` }}>
+          <span>{ch}</span>
+          <span>{ch}</span>
+        </span>
+      </span>
+    ))}
+  </span>
+);
+
+export const Wordmark = ({ className, size = "md", roll = false, ...rest }) => (
   <span className={cn("wordmark", SIZES[size], className)} aria-label="Suvi Interior" {...rest}>
-    <span>Suvi</span>
+    {roll ? <RollWord word="Suvi" /> : <span>Suvi</span>}
     <span className="wordmark-dot" aria-hidden="true" />
-    <span>Interior</span>
+    {roll ? <RollWord word="Interior" offset={4} /> : <span>Interior</span>}
   </span>
 );
