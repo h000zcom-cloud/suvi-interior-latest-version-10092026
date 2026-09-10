@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://suvi-studio.preview.emergentagent.com/sitemap.xml
+Sitemap: https://gateway-deploy-4.preview.emergentagent.com/sitemap.xml
